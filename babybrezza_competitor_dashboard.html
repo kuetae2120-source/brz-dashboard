@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)file:///C:/Users/IVG/Downloads/competitor_dashboard_4.html -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>경쟁사 동향 대시보드</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=DM+Mono:wght@400;500&display=swap');
+:root{
+  --bg:#f2f3f7;--surface:#fff;--surface2:#f7f8fc;--border:#e4e6ef;
+  --accent:#5b53f0;--accent2:#f04e6e;--accent3:#17b26a;--accent4:#f08c1a;
+  --text:#1a1a2e;--text-dim:#6b6b8a;--text-muted:#b0b0c8;
+  --cheaper:#17b26a;--pricier:#f04e6e;--same:#b0b0c8;
+  --up:#f04e6e;--down:#17b26a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;}
+
+/* ── HEADER ── */
+.header{background:#fff;border-bottom:1px solid var(--border);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:300;box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.header-left{display:flex;align-items:center;gap:10px;}
+.logo-mark{width:32px;height:32px;background:linear-gradient(135deg,var(--accent),#a78bfa);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+.header-title{font-size:15px;font-weight:700;letter-spacing:-.3px;}
+.header-right{display:flex;align-items:center;gap:8px;}
+.sync-badge{font-size:11px;color:var(--text-muted);font-family:'DM Mono',monospace;background:var(--surface2);border:1px solid var(--border);padding:4px 10px;border-radius:20px;}
+.refresh-btn{background:var(--accent);color:#fff;border:none;padding:6px 14px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;display:none;}
+.refresh-btn:hover{background:#4840c8;}
+
+/* ── CONNECT ── */
+.connect-bar{background:#fff;border-bottom:1px solid var(--border);padding:10px 28px;display:flex;align-items:center;gap:8px;}
+.conn-icon{width:30px;height:30px;background:linear-gradient(135deg,#34a853,#4285f4);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.conn-label{font-size:12px;font-weight:600;white-space:nowrap;}
+.conn-input{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:7px 11px;color:var(--text);font-size:12px;font-family:'DM Mono',monospace;outline:none;min-width:0;}
+.conn-input:focus{border-color:var(--accent);}
+.conn-input::placeholder{color:var(--text-muted);}
+.conn-btn{background:var(--accent);color:#fff;border:none;padding:7px 16px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;white-space:nowrap;}
+.conn-btn:hover{background:#4840c8;}
+.conn-btn:disabled{opacity:.5;cursor:default;}
+.status-row{margin-top:6px;display:flex;gap:5px;flex-wrap:wrap;}
+.chip{font-size:11px;padding:3px 9px;border-radius:20px;font-family:'DM Mono',monospace;}
+.chip-ok{background:rgba(23,178,106,.1);border:1px solid rgba(23,178,106,.3);color:#0e8048;}
+.chip-info{background:rgba(91,83,240,.1);border:1px solid rgba(91,83,240,.3);color:#4840c8;}
+.chip-warn{background:rgba(240,140,26,.1);border:1px solid rgba(240,140,26,.3);color:#a05800;}
+.chip-error{background:rgba(240,78,110,.1);border:1px solid rgba(240,78,110,.3);color:#c53060;}
+
+/* ── TOP FILTER ── */
+.top-filter{background:#fff;border-bottom:1px solid var(--border);padding:10px 28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.tf-label{font-size:11px;color:var(--text-dim);font-weight:600;white-space:nowrap;}
+.tf-select{background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:6px 10px;color:var(--text);font-size:12px;font-family:'Noto Sans KR',sans-serif;outline:none;cursor:pointer;}
+.tf-select:focus{border-color:var(--accent);}
+.week-chips{display:flex;gap:4px;flex-wrap:wrap;}
+.wc{background:var(--surface2);border:1px solid var(--border);color:var(--text-dim);padding:4px 12px;border-radius:20px;font-size:11px;font-weight:500;cursor:pointer;font-family:'DM Mono',monospace;white-space:nowrap;transition:all .15s;}
+.wc.on{background:var(--accent);color:#fff;border-color:var(--accent);}
+.wc:hover:not(.on){background:var(--surface);color:var(--text);}
+.divider{width:1px;height:20px;background:var(--border);}
+
+/* ── VIEW TOGGLE ── */
+.view-toggle{display:flex;gap:2px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:3px;}
+.vt-btn{background:transparent;border:none;padding:5px 12px;border-radius:6px;font-size:12px;font-weight:500;cursor:pointer;font-family:'Noto Sans KR',sans-serif;color:var(--text-dim);transition:all .15s;}
+.vt-btn.on{background:#fff;color:var(--accent);font-weight:700;box-shadow:0 1px 3px rgba(0,0,0,.08);}
+
+/* ── MAIN ── */
+.main{padding:22px 28px;}
+
+/* ── SUMMARY ROW ── */
+.summary-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;}
+.sc{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.sc-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.sc-icon.purple{background:rgba(91,83,240,.1);}
+.sc-icon.red{background:rgba(240,78,110,.1);}
+.sc-icon.green{background:rgba(23,178,106,.1);}
+.sc-icon.orange{background:rgba(240,140,26,.1);}
+.sc-val{font-size:20px;font-weight:900;line-height:1;margin-bottom:2px;}
+.sc-val.purple{color:var(--accent);}
+.sc-val.red{color:var(--accent2);}
+.sc-val.green{color:var(--accent3);}
+.sc-val.orange{color:var(--accent4);}
+.sc-label{font-size:11px;color:var(--text-dim);}
+
+/* ── CARD VIEW ── */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:16px;}
+.item-card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04);transition:box-shadow .2s;}
+.item-card:hover{box-shadow:0 4px 16px rgba(91,83,240,.1);}
+.card-header{padding:13px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--surface2);}
+.card-item-name{font-size:14px;font-weight:700;color:var(--text);}
+.card-meta{display:flex;align-items:center;gap:6px;}
+.brand-count{font-size:11px;color:var(--text-muted);background:#fff;border:1px solid var(--border);padding:2px 8px;border-radius:20px;}
+.issue-count{font-size:11px;color:#c53060;background:rgba(240,78,110,.08);border:1px solid rgba(240,78,110,.2);padding:2px 8px;border-radius:20px;}
+
+/* 브랜드 행 */
+.brand-row{display:flex;align-items:center;padding:10px 16px;border-bottom:1px solid rgba(228,230,239,.6);gap:10px;transition:background .1s;}
+.brand-row:last-child{border-bottom:none;}
+.brand-row:hover{background:rgba(91,83,240,.02);}
+.brand-name{font-size:13px;font-weight:600;width:90px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.price-col{flex:1;min-width:0;}
+.price-main{font-size:13px;font-weight:700;font-family:'DM Mono',monospace;color:var(--text);}
+.price-sale{font-size:11px;color:var(--accent3);font-family:'DM Mono',monospace;margin-top:1px;}
+.vs-col{width:70px;flex-shrink:0;text-align:center;}
+.vs-badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;white-space:nowrap;display:inline-block;}
+.vs-cheaper{background:rgba(23,178,106,.1);color:#0e7a4a;border:1px solid rgba(23,178,106,.25);}
+.vs-pricier{background:rgba(240,78,110,.1);color:#b02050;border:1px solid rgba(240,78,110,.25);}
+.vs-same{background:var(--surface2);color:var(--text-muted);border:1px solid var(--border);}
+.change-col{width:56px;flex-shrink:0;text-align:right;}
+.ch-up{font-size:11px;font-weight:700;color:var(--up);font-family:'DM Mono',monospace;}
+.ch-down{font-size:11px;font-weight:700;color:var(--down);font-family:'DM Mono',monospace;}
+.ch-same{font-size:11px;color:var(--text-muted);font-family:'DM Mono',monospace;}
+.issue-section{background:rgba(240,78,110,.025);border-top:1px dashed rgba(240,78,110,.2);padding:10px 16px 10px;display:flex;flex-direction:column;gap:5px;}
+  .issue-section-title{font-size:10px;font-weight:700;color:#b02050;letter-spacing:.8px;text-transform:uppercase;margin-bottom:2px;display:flex;align-items:center;gap:4px;}
+  .issue-line{font-size:12px;color:#1a1a2e;line-height:1.55;display:flex;align-items:baseline;gap:5px;word-break:break-all;}
+  .issue-line strong{color:#b02050;font-weight:700;flex-shrink:0;}
+.issue-icon{flex-shrink:0;margin-top:1px;}
+
+/* 채널 태그 */
+.ch-tag{font-size:10px;color:var(--text-muted);background:var(--surface2);border:1px solid var(--border);padding:1px 6px;border-radius:4px;white-space:nowrap;max-width:80px;overflow:hidden;text-overflow:ellipsis;display:inline-block;}
+
+/* ── TABLE VIEW ── */
+.table-wrap{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04);}
+.table-top{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+.table-top-title{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--text-dim);}
+.search-box{background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:6px 10px;color:var(--text);font-size:12px;font-family:'Noto Sans KR',sans-serif;width:180px;outline:none;}
+.search-box:focus{border-color:var(--accent);}
+.search-box::placeholder{color:var(--text-muted);}
+.data-table{width:100%;border-collapse:collapse;font-size:12px;}
+.data-table th{background:var(--surface2);color:var(--text-dim);font-size:10px;font-weight:600;letter-spacing:.7px;text-transform:uppercase;padding:9px 12px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none;}
+.data-table th:hover{color:var(--accent);}
+.data-table th.sa::after{content:' ↑';color:var(--accent);font-size:9px;}
+.data-table th.sd::after{content:' ↓';color:var(--accent);font-size:9px;}
+.data-table td{padding:9px 12px;border-bottom:1px solid rgba(228,230,239,.5);vertical-align:middle;}
+.data-table tr:last-child td{border-bottom:none;}
+.data-table tr:hover td{background:rgba(91,83,240,.025);}
+.mono{font-family:'DM Mono',monospace;}
+
+/* ── ISSUE PANEL ── */
+.issue-panel{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04);}
+.issue-item{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;gap:14px;}
+.issue-item:last-child{border-bottom:none;}
+.issue-date{font-size:11px;font-family:'DM Mono',monospace;color:var(--text-muted);white-space:nowrap;padding-top:2px;}
+.issue-main{flex:1;}
+.issue-tags{display:flex;gap:6px;align-items:center;margin-bottom:5px;flex-wrap:wrap;}
+.tag-item{font-size:11px;font-weight:700;color:var(--text);}
+.tag-brand{font-size:11px;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 7px;border-radius:4px;}
+.issue-text{font-size:12px;color:var(--text-dim);line-height:1.6;}
+.issue-price{font-size:11px;font-family:'DM Mono',monospace;color:var(--text-muted);margin-top:4px;}
+
+.empty{text-align:center;padding:50px;color:var(--text-muted);}
+.empty-icon{font-size:36px;margin-bottom:10px;}
+.empty-title{font-size:14px;color:var(--text-dim);}
+
+@media(max-width:768px){
+  .summary-row{grid-template-columns:repeat(2,1fr);}
+  .cards-grid{grid-template-columns:1fr;}
+  .header,.connect-bar,.top-filter,.main{padding-left:16px;padding-right:16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <div class="logo-mark">🔍</div>
+    <div class="header-title">경쟁사 동향 대시보드</div>
+  </div>
+  <div class="header-right">
+    <span class="sync-badge" id="syncBadge">최신 2026-06-11</span>
+    <button class="refresh-btn" id="refreshBtn" onclick="loadData()" style="display: inline-block;">↻ 새로고침</button>
+  </div>
+</div>
+
+<!-- CONNECT -->
+<div class="connect-bar">
+  <div class="conn-icon">📊</div>
+  <span class="conn-label">Apps Script URL</span>
+  <input type="text" class="conn-input" id="scriptUrl" placeholder="https://script.google.com/macros/s/…/exec">
+  <button class="conn-btn" id="loadBtn" onclick="loadData()">📥 불러오기</button>
+</div>
+<div style="padding:0 28px;background:#fff;border-bottom:1px solid var(--border);">
+  <div class="status-row" id="statusRow" style="padding-bottom:8px;"><span class="chip chip-ok">✅ 255건 로드</span><span class="chip chip-info">📅 최신: 2026-06-11</span></div>
+</div>
+
+<!-- TOP FILTER -->
+<div class="top-filter">
+  <span class="tf-label">품목</span>
+  <select class="tf-select" id="itemFilter" onchange="applyFilters()"><option value="">전체 품목</option><option>분유제조기</option><option>젖병 세척기</option><option>젖병 소독기 UV</option><option>젖병 소독기 스팀</option></select>
+  <span class="tf-label">브랜드</span>
+  <select class="tf-select" id="brandFilter" onchange="applyFilters()"><option value="">전체 브랜드</option><option>꿈비</option><option>나리몽</option><option>리하스</option><option>버들</option><option>베이비브레짜</option><option>벤브와</option><option>브라비</option><option>소베맘</option><option>스펙트라</option><option>에디슨</option><option>오르테</option><option>유팡</option><option>육아원칙</option><option>캄토</option><option>폴레드</option><option>필립스 아벤트</option><option>해님</option></select>
+  <div class="divider"></div>
+  <span class="tf-label">월</span>
+  <select class="tf-select" id="monthFilter" onchange="setMonth(this.value)"><option value="2026-04">2026-04</option><option value="2026-05">2026-05</option><option value="2026-06">2026-06</option></select>
+  <span class="tf-label">주차</span>
+  <div class="week-chips" id="weekChips"><button class="wc " onclick="setWeek(&#39;2026-06-04&#39;)">2026-06-04</button><button class="wc on" onclick="setWeek(&#39;2026-06-11&#39;)">2026-06-11</button></div>
+  <div class="divider" style="margin-left:auto;"></div>
+  <div class="view-toggle">
+    <button class="vt-btn on" id="btnCard" onclick="setView(&#39;card&#39;)">🗂 카드</button>
+    <button class="vt-btn" id="btnTable" onclick="setView(&#39;table&#39;)">📋 테이블</button>
+    <button class="vt-btn" id="btnIssue" onclick="setView(&#39;issue&#39;)">⚠️ 이슈</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <!-- 요약 -->
+  <div class="summary-row">
+    <div class="sc">
+      <div class="sc-icon purple">🏷️</div>
+      <div><div class="sc-val purple" id="sumBrands">16개</div><div class="sc-label">모니터링 브랜드</div></div>
+    </div>
+    <div class="sc">
+      <div class="sc-icon green">📉</div>
+      <div><div class="sc-val green" id="sumCheaper">17건</div><div class="sc-label">브레짜보다 저렴</div></div>
+    </div>
+    <div class="sc">
+      <div class="sc-icon red">📈</div>
+      <div><div class="sc-val red" id="sumPricier">0건</div><div class="sc-label">브레짜보다 비쌈</div></div>
+    </div>
+    <div class="sc">
+      <div class="sc-icon orange">⚠️</div>
+      <div><div class="sc-val orange" id="sumIssues">9건</div><div class="sc-label">이번 기간 이슈</div></div>
+    </div>
+  </div>
+
+  <!-- 카드 뷰 -->
+  <div id="viewCard">
+    <div class="cards-grid" id="cardsGrid">
+      <div class="item-card">
+        <div class="card-header">
+          <div class="card-item-name">분유제조기</div>
+          <div class="card-meta">
+            <span class="brand-count">5개 브랜드</span>
+            
+          </div>
+        </div>
+        <div style="padding:6px 0 2px;">
+          <div style="display:flex;padding:4px 16px 6px;gap:10px;">
+            <span style="font-size:10px;color:var(--text-muted);width:90px;flex-shrink:0;">브랜드</span>
+            <span style="font-size:10px;color:var(--text-muted);flex:1;">판매가 / 세일가</span>
+            <span style="font-size:10px;color:var(--text-muted);width:70px;text-align:center;">vs 브레짜</span>
+            <span style="font-size:10px;color:var(--text-muted);width:56px;text-align:right;">전주대비</span>
+            <span style="font-size:10px;color:var(--text-muted);width:72px;">세일 채널</span>
+          </div>
+          
+      <div class="brand-row">
+        <div class="brand-name" title="리하스">리하스</div>
+        <div class="price-col">
+          <div class="price-main">229,000원</div>
+          
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -28000</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="버들">버들</div>
+        <div class="price-col">
+          <div class="price-main">538,000원</div>
+          <div class="price-sale">세일 537,000원</div>
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-same">238000</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
+        <div class="price-col">
+          <div class="price-main">309,000원</div>
+          <div class="price-sale">세일 293,550원</div>
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="브라비">브라비</div>
+        <div class="price-col">
+          <div class="price-main">309,000원</div>
+          <div class="price-sale">세일 299,000원</div>
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-same">5450</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="에디슨">에디슨</div>
+        <div class="price-col">
+          <div class="price-main">259,000원</div>
+          <div class="price-sale">세일 257,000원</div>
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -280000</span></div>
+        <div class="change-col"><span class="ch-up">▲35500</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+      </div>
+    
+        </div>
+        
+      </div>
+      <div class="item-card">
+        <div class="card-header">
+          <div class="card-item-name">젖병 세척기</div>
+          <div class="card-meta">
+            <span class="brand-count">6개 브랜드</span>
+            <span class="issue-count">⚠️ 3</span>
+          </div>
+        </div>
+        <div style="padding:6px 0 2px;">
+          <div style="display:flex;padding:4px 16px 6px;gap:10px;">
+            <span style="font-size:10px;color:var(--text-muted);width:90px;flex-shrink:0;">브랜드</span>
+            <span style="font-size:10px;color:var(--text-muted);flex:1;">판매가 / 세일가</span>
+            <span style="font-size:10px;color:var(--text-muted);width:70px;text-align:center;">vs 브레짜</span>
+            <span style="font-size:10px;color:var(--text-muted);width:56px;text-align:right;">전주대비</span>
+            <span style="font-size:10px;color:var(--text-muted);width:72px;">세일 채널</span>
+          </div>
+          
+      <div class="brand-row">
+        <div class="brand-name" title="꿈비">꿈비</div>
+        <div class="price-col">
+          <div class="price-main">399,000원</div>
+          <div class="price-sale">세일 312,010원</div>
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -67040</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="버들">버들</div>
+        <div class="price-col">
+          <div class="price-main">348,000원</div>
+          <div class="price-sale">세일 347,000원</div>
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -32050</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
+        <div class="price-col">
+          <div class="price-main">399,000원</div>
+          <div class="price-sale">세일 379,050원</div>
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -</span></div>
+        <div class="change-col"><span class="ch-down">▼-</span></div>
+        <div style="width:72px;flex-shrink:0;"></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="소베맘">소베맘</div>
+        <div class="price-col">
+          <div class="price-main">399,000원</div>
+          
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-same">19950</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="육아원칙">육아원칙</div>
+        <div class="price-col">
+          <div class="price-main">379,000원</div>
+          
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -50</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="캄토">캄토</div>
+        <div class="price-col">
+          <div class="price-main">499,000원</div>
+          
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-same">119950</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"></div>
+      </div>
+    
+        </div>
+        
+      <div class="issue-section">
+        <div class="issue-section-title">⚠️ 주요 이슈</div>
+        <div class="issue-line"><strong>꿈비</strong> 6/10 15시 네이버 LIVE 진행</div><div class="issue-line"><strong>육아원칙</strong> 6/8 10시 네이버 LIVE 진행</div><div class="issue-line"><strong>캄토</strong> 품절</div>
+      </div>
+      </div>
+      <div class="item-card">
+        <div class="card-header">
+          <div class="card-item-name">젖병 소독기 UV</div>
+          <div class="card-meta">
+            <span class="brand-count">6개 브랜드</span>
+            <span class="issue-count">⚠️ 3</span>
+          </div>
+        </div>
+        <div style="padding:6px 0 2px;">
+          <div style="display:flex;padding:4px 16px 6px;gap:10px;">
+            <span style="font-size:10px;color:var(--text-muted);width:90px;flex-shrink:0;">브랜드</span>
+            <span style="font-size:10px;color:var(--text-muted);flex:1;">판매가 / 세일가</span>
+            <span style="font-size:10px;color:var(--text-muted);width:70px;text-align:center;">vs 브레짜</span>
+            <span style="font-size:10px;color:var(--text-muted);width:56px;text-align:right;">전주대비</span>
+            <span style="font-size:10px;color:var(--text-muted);width:72px;">세일 채널</span>
+          </div>
+          
+      <div class="brand-row">
+        <div class="brand-name" title="나리몽">나리몽</div>
+        <div class="price-col">
+          <div class="price-main">149,000원</div>
+          <div class="price-sale">세일 148,000원</div>
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -231050</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
+        <div class="price-col">
+          <div class="price-main">399,000원</div>
+          <div class="price-sale">세일 379,050원</div>
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -</span></div>
+        <div class="change-col"><span class="ch-down">▼-</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="스펙트라">스펙트라</div>
+        <div class="price-col">
+          <div class="price-main">209,700원</div>
+          
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -169350</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="유팡">유팡</div>
+        <div class="price-col">
+          <div class="price-main">369,000원</div>
+          <div class="price-sale">세일 347,700원</div>
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -31350</span></div>
+        <div class="change-col"><span class="ch-down">▼-1000</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="폴레드">폴레드</div>
+        <div class="price-col">
+          <div class="price-main">378,000원</div>
+          <div class="price-sale">세일 359,100원</div>
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -19950</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="해님">해님</div>
+        <div class="price-col">
+          <div class="price-main">239,000원</div>
+          <div class="price-sale">세일 226,100원</div>
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -152950</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+      </div>
+    
+        </div>
+        
+      <div class="issue-section">
+        <div class="issue-section-title">⚠️ 주요 이슈</div>
+        <div class="issue-line"><strong>유팡</strong> 6/11 11시 네이버 맘편한육아 LIVE</div><div class="issue-line"><strong>폴레드</strong> 6/12 11시 네이버 LIVE</div><div class="issue-line"><strong>해님</strong> 6/9 11시 네이버 LIVE 진행</div>
+      </div>
+      </div>
+      <div class="item-card">
+        <div class="card-header">
+          <div class="card-item-name">젖병 소독기 스팀</div>
+          <div class="card-meta">
+            <span class="brand-count">4개 브랜드</span>
+            <span class="issue-count">⚠️ 3</span>
+          </div>
+        </div>
+        <div style="padding:6px 0 2px;">
+          <div style="display:flex;padding:4px 16px 6px;gap:10px;">
+            <span style="font-size:10px;color:var(--text-muted);width:90px;flex-shrink:0;">브랜드</span>
+            <span style="font-size:10px;color:var(--text-muted);flex:1;">판매가 / 세일가</span>
+            <span style="font-size:10px;color:var(--text-muted);width:70px;text-align:center;">vs 브레짜</span>
+            <span style="font-size:10px;color:var(--text-muted);width:56px;text-align:right;">전주대비</span>
+            <span style="font-size:10px;color:var(--text-muted);width:72px;">세일 채널</span>
+          </div>
+          
+      <div class="brand-row">
+        <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
+        <div class="price-col">
+          <div class="price-main">149,000원</div>
+          
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -</span></div>
+        <div class="change-col"><span class="ch-down">▼-</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="벤브와">벤브와</div>
+        <div class="price-col">
+          <div class="price-main">139,000원</div>
+          
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -10000</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="에디슨">에디슨</div>
+        <div class="price-col">
+          <div class="price-main">129,000원</div>
+          <div class="price-sale">세일 114,240원</div>
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -34760</span></div>
+        <div class="change-col"><span class="ch-up">▲12900</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="쿠팡">쿠팡</span></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="필립스 아벤트">필립스 아벤트</div>
+        <div class="price-col">
+          <div class="price-main">153,000원</div>
+          <div class="price-sale">세일 141,550원</div>
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -7450</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="쿠팡">쿠팡</span></div>
+      </div>
+    
+        </div>
+        
+      <div class="issue-section">
+        <div class="issue-section-title">⚠️ 주요 이슈</div>
+        <div class="issue-line"><strong>베이비브레짜</strong> 네이버 6월 슈퍼적립</div><div class="issue-line"><strong>에디슨</strong> 에디슨 전주 대비 판매가 인상</div><div class="issue-line"><strong>필립스 아벤트</strong> 네이버 6월 슈퍼적립</div>
+      </div>
+      </div></div>
+  </div>
+
+  <!-- 테이블 뷰 -->
+  <div id="viewTable" style="display:none;">
+    <div class="table-wrap">
+      <div class="table-top">
+        <span class="table-top-title">전체 데이터</span>
+        <input type="text" class="search-box" id="tableSearch" placeholder="브랜드, 품목 검색..." oninput="renderTable()">
+      </div>
+      <table class="data-table">
+        <thead><tr>
+          <th onclick="thSort(&#39;품목&#39;,this)">품목</th>
+          <th onclick="thSort(&#39;날짜&#39;,this)">날짜</th>
+          <th onclick="thSort(&#39;브랜드&#39;,this)">브랜드</th>
+          <th onclick="thSort(&#39;판매가&#39;,this)">판매가</th>
+          <th>vs 브레짜</th>
+          <th onclick="thSort(&#39;세일가&#39;,this)">세일가</th>
+          <th>vs 브레짜(세일)</th>
+          <th onclick="thSort(&#39;전주대비증감&#39;,this)">전주대비</th>
+          <th>세일 채널</th>
+          <th>이슈사항</th>
+        </tr></thead>
+        <tbody id="tbTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 이슈 뷰 -->
+  <div id="viewIssue" style="display:none;">
+    <div class="issue-panel" id="issuePanel"></div>
+  </div>
+</div>
+
+<script>
+let RAW=[], FILTERED=[], SEL_WEEK='', SEL_MONTH='', CUR_VIEW='card';
+let T_COL=null, T_DIR='desc';
+
+// ── 로드 ──────────────────────────────────────────────────
+async function loadData(){
+  const url=document.getElementById('scriptUrl').value.trim();
+  if(!url){setStatus([{t:'❌ URL을 입력해주세요',c:'chip-error'}]);return;}
+  const btn=document.getElementById('loadBtn');
+  btn.disabled=true;btn.textContent='⏳ 불러오는 중...';
+  setStatus([{t:'🔄 연결 중...',c:'chip-info'}]);
+  try{
+    const resp=await fetch(url,{redirect:'follow'});
+    if(!resp.ok) throw new Error('HTTP '+resp.status);
+    const text=await resp.text();
+    let json;
+    try{json=JSON.parse(text);}
+    catch(e){
+      if(text.includes('signin')||text.includes('accounts.google')) throw new Error('구글 로그인 리디렉션 — 배포 액세스 권한을 "모든 사용자"로 설정하세요');
+      throw new Error('JSON 파싱 실패');
+    }
+    if(!json.rows||!Array.isArray(json.rows)) throw new Error('데이터 형식 오류');
+    RAW=json.rows.map(r=>({
+      ...r,
+      판매가: pNum(r.판매가),
+      세일가: pNum(r.세일가),
+      전주대비증감: String(r['전주대비 증감']||r.전주대비증감||'').trim(),
+      브레짜대비판매가: String(r['브레짜 가격대비']||r.브레짜대비판매가||'').trim(),
+      브레짜대비세일가: String(r['브레짜 가격대비_세일']||r.브레짜대비세일가||'').trim(),
+      최저가채널: String(r['최저가 채널']||r.최저가채널||'').trim(),
+      이슈사항: String(r.이슈사항||'').trim(),
+    }));
+    localStorage.setItem('compUrl',url);
+    buildFilters();applyFilters();
+    const latest=getLatest();
+    setStatus([{t:'✅ '+RAW.length+'건 로드',c:'chip-ok'},{t:'📅 최신: '+latest,c:'chip-info'}]);
+    document.getElementById('refreshBtn').style.display='inline-block';
+    document.getElementById('syncBadge').textContent='최신 '+latest;
+  }catch(e){
+    setStatus([{t:'❌ '+e.message,c:'chip-error'},{t:'💡 Apps Script 배포 URL 확인하세요',c:'chip-warn'}]);
+  }finally{btn.disabled=false;btn.textContent='📥 불러오기';}
+}
+
+function pNum(v){if(!v&&v!==0) return 0;const s=String(v).replace(/[^0-9.-]/g,'');return parseFloat(s)||0;}
+function getLatest(){const d=RAW.map(r=>r.날짜||'').filter(Boolean).sort();return d.length?d[d.length-1]:'—';}
+
+// ── 필터 ──────────────────────────────────────────────────
+function buildFilters(){
+  const items=[...new Set(RAW.map(r=>r.품목||'').filter(Boolean))].sort();
+  const brands=[...new Set(RAW.map(r=>r.브랜드||'').filter(Boolean))].sort();
+  const dates=[...new Set(RAW.map(r=>r.날짜||'').filter(Boolean))].sort();
+  // 월 추출 (날짜 앞 7자리 YYYY-MM)
+  const months=[...new Set(dates.map(d=>d.slice(0,7)).filter(Boolean))].sort();
+
+  document.getElementById('itemFilter').innerHTML='<option value="">전체 품목</option>'+items.map(i=>`<option>${i}</option>`).join('');
+  document.getElementById('brandFilter').innerHTML='<option value="">전체 브랜드</option>'+brands.map(b=>`<option>${b}</option>`).join('');
+
+  // 월 드롭다운
+  document.getElementById('monthFilter').innerHTML=months.map(m=>`<option value="${m}" ${SEL_MONTH===m?'selected':''}>${m}</option>`).join('');
+  // 첫 로드 시 가장 최신 월 자동 선택
+  if(!SEL_MONTH && months.length) { SEL_MONTH=months[months.length-1]; document.getElementById('monthFilter').value=SEL_MONTH; }
+
+  // 주차 버튼 - 전체 없이, 선택된 월에 해당하는 날짜만
+  const filteredDates=SEL_MONTH?dates.filter(d=>d.startsWith(SEL_MONTH)):dates;
+  document.getElementById('weekChips').innerHTML=filteredDates.map(d=>
+    `<button class="wc ${SEL_WEEK===d?'on':''}" onclick="setWeek('${d}')">${d}</button>`
+  ).join('');
+}
+
+function setWeek(w){
+  // 같은 주차 클릭 시 선택 해제
+  SEL_WEEK = SEL_WEEK===w ? '' : w;
+  document.querySelectorAll('.wc').forEach(b=>b.classList.toggle('on',b.textContent===SEL_WEEK));
+  applyFilters();
+}
+
+function setMonth(m){
+  SEL_MONTH=m;
+  SEL_WEEK=''; // 월 변경 시 주차 선택 초기화
+  buildFilters();
+  applyFilters();
+}
+
+function applyFilters(){
+  const item=document.getElementById('itemFilter').value;
+  const brand=document.getElementById('brandFilter').value;
+  FILTERED=RAW.filter(r=>
+    (!item||r.품목===item)&&
+    (!brand||r.브랜드===brand)&&
+    (!SEL_MONTH||r.날짜.startsWith(SEL_MONTH))&&
+    (!SEL_WEEK||r.날짜===SEL_WEEK)
+  );
+  renderAll();
+}
+
+// ── 뷰 전환 ──────────────────────────────────────────────
+function setView(v){
+  CUR_VIEW=v;
+  ['card','table','issue'].forEach(n=>{
+    document.getElementById('view'+n.charAt(0).toUpperCase()+n.slice(1)).style.display=n===v?'block':'none';
+    document.getElementById('btn'+n.charAt(0).toUpperCase()+n.slice(1)).classList.toggle('on',n===v);
+  });
+  renderAll();
+}
+
+// ── 전체 렌더 ─────────────────────────────────────────────
+function renderAll(){
+  updateSummary();
+  if(CUR_VIEW==='card') renderCards();
+  if(CUR_VIEW==='table') renderTable();
+  if(CUR_VIEW==='issue') renderIssue();
+}
+
+// ── 요약 ──────────────────────────────────────────────────
+function updateSummary(){
+  const brands=new Set(FILTERED.map(r=>r.브랜드)).size;
+  let cheaper=0,pricier=0;
+  FILTERED.forEach(r=>{
+    const v=r.브레짜대비세일가||r.브레짜대비판매가||'';
+    if(isCheaper(v)) cheaper++;
+    else if(isPricier(v)) pricier++;
+  });
+  const issues=FILTERED.filter(r=>r.이슈사항&&r.이슈사항.trim()).length;
+  document.getElementById('sumBrands').textContent=brands+'개';
+  document.getElementById('sumCheaper').textContent=cheaper+'건';
+  document.getElementById('sumPricier').textContent=pricier+'건';
+  document.getElementById('sumIssues').textContent=issues+'건';
+}
+
+function isCheaper(v){const s=String(v||'').trim();return s.startsWith('-')||s.includes('↓')||s.toLowerCase().includes('저렴');}
+function isPricier(v){const s=String(v||'').trim();return s.startsWith('+')||s.includes('↑')||s.toLowerCase().includes('높')||s.toLowerCase().includes('비싼');}
+
+// ── 카드 뷰 ──────────────────────────────────────────────
+function renderCards(){
+  // 품목별 그룹핑
+  const itemMap={};
+  FILTERED.forEach(r=>{
+    const item=r.품목||'기타';
+    if(!itemMap[item]) itemMap[item]=[];
+    itemMap[item].push(r);
+  });
+
+  const items=Object.keys(itemMap).sort();
+  if(!items.length){
+    document.getElementById('cardsGrid').innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="empty-icon">📭</div><div class="empty-title">데이터가 없어요</div></div>`;
+    return;
+  }
+
+  document.getElementById('cardsGrid').innerHTML=items.map(item=>{
+    const rows=itemMap[item];
+    // 같은 브랜드 중 최신 날짜만
+    const brandMap={};
+    rows.forEach(r=>{
+      const b=r.브랜드||'';
+      if(!brandMap[b]||r.날짜>brandMap[b].날짜) brandMap[b]=r;
+    });
+    const brandRows=Object.values(brandMap).sort((a,b)=>a.브랜드.localeCompare(b.브랜드));
+    const issueRows=rows.filter(r=>r.이슈사항&&r.이슈사항.trim());
+    const issueCount=issueRows.length;
+
+    const brandHtml=brandRows.map(r=>`
+      <div class="brand-row">
+        <div class="brand-name" title="${r.브랜드}">${r.브랜드}</div>
+        <div class="price-col">
+          <div class="price-main">${r.판매가?r.판매가.toLocaleString()+'원':'—'}</div>
+          ${r.세일가&&r.세일가!==r.판매가?`<div class="price-sale">세일 ${r.세일가.toLocaleString()}원</div>`:''}
+        </div>
+        <div class="vs-col">${vsB(r.브레짜대비판매가,r.브레짜대비세일가)}</div>
+        <div class="change-col">${changeC(r.전주대비증감)}</div>
+        <div style="width:72px;flex-shrink:0;">${r.최저가채널?`<span class="ch-tag" title="${r.최저가채널}">${r.최저가채널}</span>`:''}</div>
+      </div>
+    `).join('');
+
+    // 이슈 최신 1개만 카드에 표시
+    const latestIssue=issueRows.sort((a,b)=>(b.날짜||'').localeCompare(a.날짜||''))[0];
+    const issueHtml=issueRows.length?`
+      <div class="issue-section">
+        <div class="issue-section-title">⚠️ 주요 이슈</div>
+        ${issueRows.sort((a,b)=>(a.브랜드||'').localeCompare(b.브랜드||'')).map(r=>`<div class="issue-line"><strong>${r.브랜드}</strong> ${r.이슈사항}</div>`).join('')}
+      </div>`:''
+
+    return `
+      <div class="item-card">
+        <div class="card-header">
+          <div class="card-item-name">${item}</div>
+          <div class="card-meta">
+            <span class="brand-count">${brandRows.length}개 브랜드</span>
+            ${issueCount?`<span class="issue-count">⚠️ ${issueCount}</span>`:''}
+          </div>
+        </div>
+        <div style="padding:6px 0 2px;">
+          <div style="display:flex;padding:4px 16px 6px;gap:10px;">
+            <span style="font-size:10px;color:var(--text-muted);width:90px;flex-shrink:0;">브랜드</span>
+            <span style="font-size:10px;color:var(--text-muted);flex:1;">판매가 / 세일가</span>
+            <span style="font-size:10px;color:var(--text-muted);width:70px;text-align:center;">vs 브레짜</span>
+            <span style="font-size:10px;color:var(--text-muted);width:56px;text-align:right;">전주대비</span>
+            <span style="font-size:10px;color:var(--text-muted);width:72px;">세일 채널</span>
+          </div>
+          ${brandHtml}
+        </div>
+        ${issueHtml}
+      </div>`;
+  }).join('');
+}
+
+// ── 테이블 뷰 ────────────────────────────────────────────
+function renderTable(){
+  const q=document.getElementById('tableSearch').value.toLowerCase();
+  let rows=[...FILTERED].filter(r=>!q||(r.브랜드||'').toLowerCase().includes(q)||(r.품목||'').toLowerCase().includes(q)||(r.이슈사항||'').toLowerCase().includes(q));
+
+  if(T_COL){
+    rows.sort((a,b)=>{
+      const av=a[T_COL],bv=b[T_COL];
+      if(typeof av==='number') return T_DIR==='asc'?av-bv:bv-av;
+      return T_DIR==='asc'?String(av||'').localeCompare(String(bv||'')):String(bv||'').localeCompare(String(av||''));
+    });
+  } else {
+    rows.sort((a,b)=>(a.품목||'').localeCompare(b.품목||'')||(a.브랜드||'').localeCompare(b.브랜드||''));
+  }
+
+  document.getElementById('tbTable').innerHTML=rows.length
+    ?rows.map(r=>`<tr>
+      <td style="font-weight:600;">${r.품목||'—'}</td>
+      <td class="mono" style="font-size:11px;">${r.날짜||'—'}</td>
+      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">${r.브랜드||'—'}</span></td>
+      <td class="mono">${r.판매가?r.판매가.toLocaleString()+'원':'—'}</td>
+      <td>${vsBadge(r.브레짜대비판매가)}</td>
+      <td class="mono">${r.세일가?r.세일가.toLocaleString()+'원':'—'}</td>
+      <td>${vsBadge(r.브레짜대비세일가)}</td>
+      <td>${changeC(r.전주대비증감)}</td>
+      <td style="font-size:11px;color:var(--text-dim);">${r.최저가채널||'—'}</td>
+      <td style="max-width:200px;">${r.이슈사항?`<span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="${r.이슈사항}">${r.이슈사항}</span>`:'<span style="color:var(--text-muted);font-size:11px;">—</span>'}</td>
+    </tr>`).join('')
+    :`<tr><td colspan="10"><div class="empty"><div class="empty-icon">📭</div><div class="empty-title">검색 결과 없음</div></div></td></tr>`;
+}
+
+function thSort(col,el){
+  document.querySelectorAll('.data-table th').forEach(t=>{t.classList.remove('sa','sd');});
+  T_DIR=T_COL===col?(T_DIR==='asc'?'desc':'asc'):'desc';
+  T_COL=col;
+  el.classList.add(T_DIR==='asc'?'sa':'sd');
+  renderTable();
+}
+
+// ── 이슈 뷰 ──────────────────────────────────────────────
+function renderIssue(){
+  let rows=FILTERED.filter(r=>r.이슈사항&&r.이슈사항.trim()).sort((a,b)=>(b.날짜||'').localeCompare(a.날짜||''));
+
+  if(!rows.length){
+    document.getElementById('issuePanel').innerHTML=`<div class="empty"><div class="empty-icon">✅</div><div class="empty-title">이슈 없음</div></div>`;
+    return;
+  }
+
+  document.getElementById('issuePanel').innerHTML=rows.map(r=>`
+    <div class="issue-item">
+      <div class="issue-date">${r.날짜||'—'}</div>
+      <div class="issue-main">
+        <div class="issue-tags">
+          <span class="tag-item">${r.품목||'—'}</span>
+          <span style="color:var(--text-muted);">·</span>
+          <span class="tag-brand">${r.브랜드||'—'}</span>
+        </div>
+        <div class="issue-text">${r.이슈사항}</div>
+        <div class="issue-price">판매가 ${r.판매가?r.판매가.toLocaleString()+'원':'—'}${r.세일가?' · 세일가 '+r.세일가.toLocaleString()+'원':''}${r.최저가채널?' · 세일 채널: '+r.최저가채널:''}</div>
+      </div>
+    </div>`).join('');
+}
+
+// ── 헬퍼 ──────────────────────────────────────────────────
+function vsB(v1,v2){
+  const v=v2||v1||'';
+  if(!v||v==='—') return '<span class="vs-badge vs-same">—</span>';
+  if(isCheaper(v)) return `<span class="vs-badge vs-cheaper">▼ ${v}</span>`;
+  if(isPricier(v)) return `<span class="vs-badge vs-pricier">▲ ${v}</span>`;
+  return `<span class="vs-badge vs-same">${v}</span>`;
+}
+
+function vsBadge(v){
+  const s=String(v||'').trim();
+  if(!s||s==='—') return '<span style="color:var(--text-muted)">—</span>';
+  if(isCheaper(s)) return `<span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ ${s}</span>`;
+  if(isPricier(s)) return `<span style="font-size:11px;font-weight:700;color:#b02050;">▲ ${s}</span>`;
+  return `<span style="font-size:11px;color:var(--text-muted);">${s}</span>`;
+}
+
+function changeC(v){
+  const s=String(v||'').trim();
+  if(!s||s==='—'||s==='0') return '<span class="ch-same">—</span>';
+  if(s.startsWith('-')||parseFloat(s.replace(/[^0-9.-]/g,''))<0) return `<span class="ch-down">▼${s}</span>`;
+  if(s.startsWith('+')||parseFloat(s.replace(/[^0-9.-]/g,''))>0) return `<span class="ch-up">▲${s}</span>`;
+  return `<span class="ch-same">${s}</span>`;
+}
+
+function setStatus(items){document.getElementById('statusRow').innerHTML=items.map(i=>`<span class="chip ${i.c}">${i.t}</span>`).join('');}
+
+window.addEventListener('load',()=>{
+  const saved=localStorage.getItem('compUrl');
+  if(saved){document.getElementById('scriptUrl').value=saved;loadData();}
+});
+</script>
+
+
+</body></html>
