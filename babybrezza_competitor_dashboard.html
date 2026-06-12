@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0069)file:///C:/Users/IVG/Downloads/babybrezza_competitor_dashboard_4.html -->
+<!-- saved from url=(0067)file:///C:/Users/IVG/Downloads/babybrezza_competitor_dashboard.html -->
 <html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,7 +78,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 .sc-label{font-size:11px;color:var(--text-dim);}
 
 /* ── CARD VIEW ── */
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px;}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:16px;}
 .item-card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04);transition:box-shadow .2s;}
 .item-card:hover{box-shadow:0 4px 16px rgba(91,83,240,.1);}
 .card-header{padding:13px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--surface2);}
@@ -88,22 +88,22 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 .issue-count{font-size:11px;color:#c53060;background:rgba(240,78,110,.08);border:1px solid rgba(240,78,110,.2);padding:2px 8px;border-radius:20px;}
 
 /* 브랜드 행 */
-.brand-row{display:flex;align-items:center;padding:8px 16px;border-bottom:1px solid rgba(228,230,239,.6);gap:8px;transition:background .1s;}
+.brand-row{display:flex;align-items:center;padding:10px 16px;border-bottom:1px solid rgba(228,230,239,.6);gap:10px;transition:background .1s;}
 .brand-row:last-child{border-bottom:none;}
 .brand-row:hover{background:rgba(91,83,240,.02);}
-.brand-name{font-size:12px;font-weight:600;width:80px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.price-col{flex:1;min-width:80px;}
-.price-main{font-size:12px;font-weight:700;font-family:'DM Mono',monospace;color:var(--text);white-space:nowrap;}
-.price-sale{font-size:11px;color:var(--accent3);font-family:'DM Mono',monospace;margin-top:1px;white-space:nowrap;}
-.vs-col{width:80px;flex-shrink:0;text-align:center;}
-.vs-badge{font-size:10px;font-weight:700;padding:2px 6px;border-radius:20px;white-space:nowrap;display:inline-block;}
+.brand-name{font-size:13px;font-weight:600;width:90px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.price-col{flex:1;min-width:0;}
+.price-main{font-size:13px;font-weight:700;font-family:'DM Mono',monospace;color:var(--text);}
+.price-sale{font-size:11px;color:var(--accent3);font-family:'DM Mono',monospace;margin-top:1px;}
+.vs-col{width:70px;flex-shrink:0;text-align:center;}
+.vs-badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;white-space:nowrap;display:inline-block;}
 .vs-cheaper{background:rgba(23,178,106,.1);color:#0e7a4a;border:1px solid rgba(23,178,106,.25);}
 .vs-pricier{background:rgba(240,78,110,.1);color:#b02050;border:1px solid rgba(240,78,110,.25);}
 .vs-same{background:var(--surface2);color:var(--text-muted);border:1px solid var(--border);}
-.change-col{width:80px;flex-shrink:0;text-align:center;}
-.ch-up{font-size:10px;font-weight:700;color:#b02050;background:rgba(240,78,110,.1);border:1px solid rgba(240,78,110,.25);padding:2px 6px;border-radius:20px;white-space:nowrap;display:inline-block;}
-.ch-down{font-size:10px;font-weight:700;color:#0e7a4a;background:rgba(23,178,106,.1);border:1px solid rgba(23,178,106,.25);padding:2px 6px;border-radius:20px;white-space:nowrap;display:inline-block;}
-.ch-same{font-size:11px;color:var(--text-muted);}
+.change-col{width:56px;flex-shrink:0;text-align:right;}
+.ch-up{font-size:11px;font-weight:700;color:var(--up);font-family:'DM Mono',monospace;}
+.ch-down{font-size:11px;font-weight:700;color:var(--down);font-family:'DM Mono',monospace;}
+.ch-same{font-size:11px;color:var(--text-muted);font-family:'DM Mono',monospace;}
 .issue-section{background:rgba(240,78,110,.025);border-top:1px dashed rgba(240,78,110,.2);padding:10px 16px 10px;display:flex;flex-direction:column;gap:5px;}
   .issue-section-title{font-size:10px;font-weight:700;color:#b02050;letter-spacing:.8px;text-transform:uppercase;margin-bottom:2px;display:flex;align-items:center;gap:4px;}
   .issue-line{font-size:12px;color:#1a1a2e;line-height:1.55;display:flex;align-items:baseline;gap:5px;word-break:break-all;}
@@ -158,7 +158,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 <!-- HEADER -->
 <div class="header">
   <div class="header-left">
-    <div class="logo-mark">🔍</div>
+    <img src="data:image/jpeg;base64,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" style="height:32px;width:auto;object-fit:contain;">
     <div class="header-title">베이비브레짜 경쟁사 동향 대시보드</div>
   </div>
   <div class="header-right">
@@ -168,11 +168,14 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 </div>
 
 <!-- CONNECT -->
-<div class="connect-bar" style="justify-content:flex-end">
-  <span class="sync-badge" id="syncBadge2" style="display:none"></span>
+<div class="connect-bar">
+  <div class="conn-icon">📊</div>
+  <span class="conn-label">Apps Script URL</span>
+  <input type="text" class="conn-input" id="scriptUrl" placeholder="https://script.google.com/macros/s/…/exec">
+  <button class="conn-btn" id="loadBtn" onclick="loadData()">📥 불러오기</button>
 </div>
 <div style="padding:0 28px;background:#fff;border-bottom:1px solid var(--border);">
-  <div class="status-row" id="statusRow" style="padding-bottom:8px;"><span class="chip chip-error">❌ 연결 실패</span></div>
+  <div class="status-row" id="statusRow" style="padding-bottom:8px;"><span class="chip chip-ok">✅ 256건 로드</span><span class="chip chip-info">📅 최신: 2026-06-11</span></div>
 </div>
 
 <!-- TOP FILTER -->
@@ -185,26 +188,30 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
   <span class="tf-label">월</span>
   <select class="tf-select" id="monthFilter" onchange="setMonth(this.value)"><option value="2026-04">2026-04</option><option value="2026-05">2026-05</option><option value="2026-06">2026-06</option></select>
   <span class="tf-label">주차</span>
-  <div class="week-chips" id="weekChips"><button class="wc " onclick="setWeek(&#39;2026-06-04&#39;)">2026-06-04</button><button class="wc on" onclick="setWeek(&#39;2026-06-11&#39;)">2026-06-11</button></div>
+  <div class="week-chips" id="weekChips"><button class="wc " onclick="setWeek(&#39;2026-06-04&#39;)">2026-06-04</button><button class="wc " onclick="setWeek(&#39;2026-06-11&#39;)">2026-06-11</button></div>
   <div class="divider" style="margin-left:auto;"></div>
   <div class="view-toggle">
     <button class="vt-btn on" id="btnCard" onclick="setView(&#39;card&#39;)">🗂 카드</button>
     <button class="vt-btn" id="btnTable" onclick="setView(&#39;table&#39;)">📋 테이블</button>
     <button class="vt-btn" id="btnIssue" onclick="setView(&#39;issue&#39;)">⚠️ 이슈</button>
+    <button class="vt-btn" id="btnChart" onclick="setView(&#39;chart&#39;)">📊 차트</button>
+    <button class="vt-btn" id="btnMonthly" onclick="setView(&#39;monthly&#39;)">📅 월별</button>
   </div>
 </div>
 
+<div id="viewChart" style="display:none"></div>
+<div id="viewMonthly" style="display:none"></div>
 <!-- MAIN -->
 <div class="main">
   <!-- 요약 -->
   <div class="summary-row">
     <div class="sc">
       <div class="sc-icon purple">🏷️</div>
-      <div><div class="sc-val purple" id="sumBrands">16개</div><div class="sc-label">모니터링 브랜드</div></div>
+      <div><div class="sc-val purple" id="sumBrands">17개</div><div class="sc-label">모니터링 브랜드</div></div>
     </div>
     <div class="sc">
       <div class="sc-icon green">📉</div>
-      <div><div class="sc-val green" id="sumCheaper">17건</div><div class="sc-label">브레짜보다 저렴</div></div>
+      <div><div class="sc-val green" id="sumCheaper">29건</div><div class="sc-label">브레짜보다 저렴</div></div>
     </div>
     <div class="sc">
       <div class="sc-icon red">📈</div>
@@ -212,7 +219,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
     </div>
     <div class="sc">
       <div class="sc-icon orange">⚠️</div>
-      <div><div class="sc-val orange" id="sumIssues">9건</div><div class="sc-label">이번 기간 이슈</div></div>
+      <div><div class="sc-val orange" id="sumIssues">17건</div><div class="sc-label">이번 기간 이슈</div></div>
     </div>
   </div>
 
@@ -231,8 +238,8 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div style="display:flex;padding:4px 16px 6px;gap:10px;">
             <span style="font-size:10px;color:var(--text-muted);width:90px;flex-shrink:0;">브랜드</span>
             <span style="font-size:10px;color:var(--text-muted);flex:1;">판매가 / 세일가</span>
-            <span style="font-size:10px;color:var(--text-muted);width:80px;text-align:center;">vs 브레짜</span>
-            <span style="font-size:10px;color:var(--text-muted);width:80px;text-align:center;">전주대비</span>
+            <span style="font-size:10px;color:var(--text-muted);width:70px;text-align:center;">vs 브레짜</span>
+            <span style="font-size:10px;color:var(--text-muted);width:56px;text-align:right;">전주대비</span>
             <span style="font-size:10px;color:var(--text-muted);width:72px;">세일 채널</span>
           </div>
           
@@ -264,7 +271,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">309,000원</div>
           <div class="price-sale">세일 293,550원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -</span></div>
+        <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -298,16 +305,16 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
         <div class="card-header">
           <div class="card-item-name">젖병 세척기</div>
           <div class="card-meta">
-            <span class="brand-count">6개 브랜드</span>
-            <span class="issue-count">⚠️ 3</span>
+            <span class="brand-count">7개 브랜드</span>
+            <span class="issue-count">⚠️ 6</span>
           </div>
         </div>
         <div style="padding:6px 0 2px;">
           <div style="display:flex;padding:4px 16px 6px;gap:10px;">
             <span style="font-size:10px;color:var(--text-muted);width:90px;flex-shrink:0;">브랜드</span>
             <span style="font-size:10px;color:var(--text-muted);flex:1;">판매가 / 세일가</span>
-            <span style="font-size:10px;color:var(--text-muted);width:80px;text-align:center;">vs 브레짜</span>
-            <span style="font-size:10px;color:var(--text-muted);width:80px;text-align:center;">전주대비</span>
+            <span style="font-size:10px;color:var(--text-muted);width:70px;text-align:center;">vs 브레짜</span>
+            <span style="font-size:10px;color:var(--text-muted);width:56px;text-align:right;">전주대비</span>
             <span style="font-size:10px;color:var(--text-muted);width:72px;">세일 채널</span>
           </div>
           
@@ -319,7 +326,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
         </div>
         <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -67040</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
-        <div style="width:72px;flex-shrink:0;"></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
       <div class="brand-row">
@@ -330,7 +337,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
         </div>
         <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -32050</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
-        <div style="width:72px;flex-shrink:0;"></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
       <div class="brand-row">
@@ -339,9 +346,9 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">399,000원</div>
           <div class="price-sale">세일 379,050원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -</span></div>
-        <div class="change-col"><span class="ch-down">▼-</span></div>
-        <div style="width:72px;flex-shrink:0;"></div>
+        <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
       <div class="brand-row">
@@ -352,7 +359,18 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
         </div>
         <div class="vs-col"><span class="vs-badge vs-same">19950</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
-        <div style="width:72px;flex-shrink:0;"></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+      </div>
+    
+      <div class="brand-row">
+        <div class="brand-name" title="오르테">오르테</div>
+        <div class="price-col">
+          <div class="price-main">349,000원</div>
+          <div class="price-sale">세일 329,000원</div>
+        </div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -50050</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
       <div class="brand-row">
@@ -363,7 +381,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
         </div>
         <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -50</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
-        <div style="width:72px;flex-shrink:0;"></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
       <div class="brand-row">
@@ -374,14 +392,14 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
         </div>
         <div class="vs-col"><span class="vs-badge vs-same">119950</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
-        <div style="width:72px;flex-shrink:0;"></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
         </div>
         
       <div class="issue-section">
         <div class="issue-section-title">⚠️ 주요 이슈</div>
-        <div class="issue-line"><strong>꿈비</strong> 6/10 15시 네이버 LIVE 진행</div><div class="issue-line"><strong>육아원칙</strong> 6/8 10시 네이버 LIVE 진행</div><div class="issue-line"><strong>캄토</strong> 품절</div>
+        <div class="issue-line"><strong>꿈비</strong> 6/10 15시 네이버 LIVE 진행</div><div class="issue-line"><strong>오르테</strong> 네이버 6월 슈퍼적립</div><div class="issue-line"><strong>육아원칙</strong> 6/8 10시 네이버 LIVE 진행</div><div class="issue-line"><strong>육아원칙</strong> 육아원칙 전주 대비 판매가 인상</div><div class="issue-line"><strong>캄토</strong> 품절</div><div class="issue-line"><strong>캄토</strong> 품절</div>
       </div>
       </div>
       <div class="item-card">
@@ -389,15 +407,15 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="card-item-name">젖병 소독기 UV</div>
           <div class="card-meta">
             <span class="brand-count">6개 브랜드</span>
-            <span class="issue-count">⚠️ 3</span>
+            <span class="issue-count">⚠️ 5</span>
           </div>
         </div>
         <div style="padding:6px 0 2px;">
           <div style="display:flex;padding:4px 16px 6px;gap:10px;">
             <span style="font-size:10px;color:var(--text-muted);width:90px;flex-shrink:0;">브랜드</span>
             <span style="font-size:10px;color:var(--text-muted);flex:1;">판매가 / 세일가</span>
-            <span style="font-size:10px;color:var(--text-muted);width:80px;text-align:center;">vs 브레짜</span>
-            <span style="font-size:10px;color:var(--text-muted);width:80px;text-align:center;">전주대비</span>
+            <span style="font-size:10px;color:var(--text-muted);width:70px;text-align:center;">vs 브레짜</span>
+            <span style="font-size:10px;color:var(--text-muted);width:56px;text-align:right;">전주대비</span>
             <span style="font-size:10px;color:var(--text-muted);width:72px;">세일 채널</span>
           </div>
           
@@ -418,8 +436,8 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">399,000원</div>
           <div class="price-sale">세일 379,050원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -</span></div>
-        <div class="change-col"><span class="ch-down">▼-</span></div>
+        <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
@@ -471,7 +489,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
         
       <div class="issue-section">
         <div class="issue-section-title">⚠️ 주요 이슈</div>
-        <div class="issue-line"><strong>유팡</strong> 6/11 11시 네이버 맘편한육아 LIVE</div><div class="issue-line"><strong>폴레드</strong> 6/12 11시 네이버 LIVE</div><div class="issue-line"><strong>해님</strong> 6/9 11시 네이버 LIVE 진행</div>
+        <div class="issue-line"><strong>스펙트라</strong> 스펙트라 전주 대비 판매가 인하</div><div class="issue-line"><strong>유팡</strong> 6/11 11시 네이버 맘편한육아 LIVE</div><div class="issue-line"><strong>폴레드</strong> 6/12 11시 네이버 LIVE</div><div class="issue-line"><strong>폴레드</strong> 6/8 19:00 네이버 LIVE</div><div class="issue-line"><strong>해님</strong> 6/9 11시 네이버 LIVE 진행</div>
       </div>
       </div>
       <div class="item-card">
@@ -479,15 +497,15 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="card-item-name">젖병 소독기 스팀</div>
           <div class="card-meta">
             <span class="brand-count">4개 브랜드</span>
-            <span class="issue-count">⚠️ 3</span>
+            <span class="issue-count">⚠️ 6</span>
           </div>
         </div>
         <div style="padding:6px 0 2px;">
           <div style="display:flex;padding:4px 16px 6px;gap:10px;">
             <span style="font-size:10px;color:var(--text-muted);width:90px;flex-shrink:0;">브랜드</span>
             <span style="font-size:10px;color:var(--text-muted);flex:1;">판매가 / 세일가</span>
-            <span style="font-size:10px;color:var(--text-muted);width:80px;text-align:center;">vs 브레짜</span>
-            <span style="font-size:10px;color:var(--text-muted);width:80px;text-align:center;">전주대비</span>
+            <span style="font-size:10px;color:var(--text-muted);width:70px;text-align:center;">vs 브레짜</span>
+            <span style="font-size:10px;color:var(--text-muted);width:56px;text-align:right;">전주대비</span>
             <span style="font-size:10px;color:var(--text-muted);width:72px;">세일 채널</span>
           </div>
           
@@ -497,8 +515,8 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">149,000원</div>
           
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -</span></div>
-        <div class="change-col"><span class="ch-down">▼-</span></div>
+        <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
+        <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
@@ -539,7 +557,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
         
       <div class="issue-section">
         <div class="issue-section-title">⚠️ 주요 이슈</div>
-        <div class="issue-line"><strong>베이비브레짜</strong> 네이버 6월 슈퍼적립</div><div class="issue-line"><strong>에디슨</strong> 에디슨 전주 대비 판매가 인상</div><div class="issue-line"><strong>필립스 아벤트</strong> 네이버 6월 슈퍼적립</div>
+        <div class="issue-line"><strong>베이비브레짜</strong> 네이버 6월 슈퍼적립</div><div class="issue-line"><strong>베이비브레짜</strong> 네이버 6월 슈퍼적립</div><div class="issue-line"><strong>에디슨</strong> 에디슨 전주 대비 판매가 인상</div><div class="issue-line"><strong>에디슨</strong> 에디슨 전주 대비 판매가 인상</div><div class="issue-line"><strong>필립스 아벤트</strong> 네이버 6월 슈퍼적립</div><div class="issue-line"><strong>필립스 아벤트</strong> 네이버 6월 슈퍼적립</div>
       </div>
       </div></div>
   </div>
@@ -579,62 +597,43 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 let RAW=[], FILTERED=[], SEL_WEEK='', SEL_MONTH='', CUR_VIEW='card';
 let T_COL=null, T_DIR='desc';
 
-// ── Apps Script URL 고정 ──────────────────────────────────────
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3rEhAfoqaOZKFl-YGl1BqZ1wccwbPHLOfrq31GVRsTugt0-hmZ5vbpruGAJCLnKqR/exec';
-
-// ── 로드 (JSONP 방식 - CORS 우회) ────────────────────────────
-function loadData(){
-  setStatus([{t:'🔄 데이터 불러오는 중...',c:'chip-info'}]);
-  const refreshBtn = document.getElementById('refreshBtn');
-  if(refreshBtn) { refreshBtn.disabled=true; refreshBtn.textContent='⏳ 불러오는 중...'; }
-
-  // 기존 스크립트 제거
-  const old = document.getElementById('brz-jsonp');
-  if(old) old.remove();
-
-  // 타임아웃 5초
-  const timer = setTimeout(()=>{
-    if(refreshBtn){refreshBtn.disabled=false;refreshBtn.textContent='↻ 새로고침';}
-    setStatus([{t:'⚠️ 연결 시간 초과 — 샘플 데이터 표시',c:'chip-warn'}]);
-  }, 5000);
-
-  window.__brzCallback = function(json){
-    clearTimeout(timer);
-    const old2 = document.getElementById('brz-jsonp');
-    if(old2) old2.remove();
-    if(refreshBtn){refreshBtn.disabled=false;refreshBtn.textContent='↻ 새로고침';}
-    try{
-      const rows = json.rows || json.data || [];
-      if(!rows.length) throw new Error('데이터 없음');
-      RAW=rows.map(r=>({
-        ...r,
-        판매가: pNum(r.판매가),
-        세일가: pNum(r.세일가),
-        전주대비증감: String(r['전주대비 증감']||r.전주대비증감||'').trim(),
-        브레짜대비판매가: String(r['브레짜 가격대비']||r.브레짜대비판매가||'').trim(),
-        브레짜대비세일가: String(r['브레짜 가격대비_세일']||r.브레짜대비세일가||'').trim(),
-        최저가채널: String(r['최저가 채널']||r.최저가채널||'').trim(),
-        이슈사항: String(r.이슈사항||'').trim(),
-      }));
-      buildFilters();applyFilters();
-      const latest=getLatest();
-      setStatus([{t:'✅ '+RAW.length+'건 로드',c:'chip-ok'},{t:'📅 최신: '+latest,c:'chip-info'}]);
-      document.getElementById('refreshBtn').style.display='inline-block';
-      document.getElementById('syncBadge').textContent='최신 '+latest;
-    }catch(e){
-      setStatus([{t:'❌ '+e.message,c:'chip-error'}]);
+// ── 로드 ──────────────────────────────────────────────────
+async function loadData(){
+  const url=document.getElementById('scriptUrl').value.trim();
+  if(!url){setStatus([{t:'❌ URL을 입력해주세요',c:'chip-error'}]);return;}
+  const btn=document.getElementById('loadBtn');
+  btn.disabled=true;btn.textContent='⏳ 불러오는 중...';
+  setStatus([{t:'🔄 연결 중...',c:'chip-info'}]);
+  try{
+    const resp=await fetch(url,{redirect:'follow'});
+    if(!resp.ok) throw new Error('HTTP '+resp.status);
+    const text=await resp.text();
+    let json;
+    try{json=JSON.parse(text);}
+    catch(e){
+      if(text.includes('signin')||text.includes('accounts.google')) throw new Error('구글 로그인 리디렉션 — 배포 액세스 권한을 "모든 사용자"로 설정하세요');
+      throw new Error('JSON 파싱 실패');
     }
-  };
-
-  const script = document.createElement('script');
-  script.id = 'brz-jsonp';
-  script.src = APPS_SCRIPT_URL + '?callback=__brzCallback';
-  script.onerror = ()=>{
-    clearTimeout(timer);
-    if(refreshBtn){refreshBtn.disabled=false;refreshBtn.textContent='↻ 새로고침';}
-    setStatus([{t:'❌ 연결 실패',c:'chip-error'}]);
-  };
-  document.body.appendChild(script);
+    if(!json.rows||!Array.isArray(json.rows)) throw new Error('데이터 형식 오류');
+    RAW=json.rows.map(r=>({
+      ...r,
+      판매가: pNum(r.판매가),
+      세일가: pNum(r.세일가),
+      전주대비증감: String(r['전주대비 증감']||r.전주대비증감||'').trim(),
+      브레짜대비판매가: String(r['브레짜 가격대비']||r.브레짜대비판매가||'').trim(),
+      브레짜대비세일가: String(r['브레짜 가격대비_세일']||r.브레짜대비세일가||'').trim(),
+      최저가채널: String(r['최저가 채널']||r.최저가채널||'').trim(),
+      이슈사항: String(r.이슈사항||'').trim(),
+    }));
+    localStorage.setItem('compUrl',url);
+    buildFilters();applyFilters();
+    const latest=getLatest();
+    setStatus([{t:'✅ '+RAW.length+'건 로드',c:'chip-ok'},{t:'📅 최신: '+latest,c:'chip-info'}]);
+    document.getElementById('refreshBtn').style.display='inline-block';
+    document.getElementById('syncBadge').textContent='최신 '+latest;
+  }catch(e){
+    setStatus([{t:'❌ '+e.message,c:'chip-error'},{t:'💡 Apps Script 배포 URL 확인하세요',c:'chip-warn'}]);
+  }finally{btn.disabled=false;btn.textContent='📥 불러오기';}
 }
 
 function pNum(v){if(!v&&v!==0) return 0;const s=String(v).replace(/[^0-9.-]/g,'');return parseFloat(s)||0;}
@@ -692,9 +691,11 @@ function applyFilters(){
 // ── 뷰 전환 ──────────────────────────────────────────────
 function setView(v){
   CUR_VIEW=v;
-  ['card','table','issue'].forEach(n=>{
-    document.getElementById('view'+n.charAt(0).toUpperCase()+n.slice(1)).style.display=n===v?'block':'none';
-    document.getElementById('btn'+n.charAt(0).toUpperCase()+n.slice(1)).classList.toggle('on',n===v);
+  ['card','table','issue','chart','monthly'].forEach(n=>{
+    const el=document.getElementById('view'+n.charAt(0).toUpperCase()+n.slice(1));
+    const btn=document.getElementById('btn'+n.charAt(0).toUpperCase()+n.slice(1));
+    if(el) el.style.display=n===v?'block':'none';
+    if(btn) btn.classList.toggle('on',n===v);
   });
   renderAll();
 }
@@ -705,6 +706,8 @@ function renderAll(){
   if(CUR_VIEW==='card') renderCards();
   if(CUR_VIEW==='table') renderTable();
   if(CUR_VIEW==='issue') renderIssue();
+  if(CUR_VIEW==='chart') renderChartBRZ();
+  if(CUR_VIEW==='monthly') renderMonthlyBRZ();
 }
 
 // ── 요약 ──────────────────────────────────────────────────
@@ -723,22 +726,8 @@ function updateSummary(){
   document.getElementById('sumIssues').textContent=issues+'건';
 }
 
-function isCheaper(v){
-  if(v===null||v===undefined||v==='') return false;
-  if(typeof v==='number') return v<0;
-  const s=String(v).trim();
-  if(!s||s==='-'||s==='—') return false;
-  const n=parseFloat(s.replace(/[^0-9.-]/g,''));
-  return (!isNaN(n)&&n<0)||s.includes('↓')||s.toLowerCase().includes('저렴');
-}
-function isPricier(v){
-  if(v===null||v===undefined||v==='') return false;
-  if(typeof v==='number') return v>0;
-  const s=String(v).trim();
-  if(!s||s==='-'||s==='—') return false;
-  const n=parseFloat(s.replace(/[^0-9.-]/g,''));
-  return (!isNaN(n)&&n>0)||s.includes('↑')||s.toLowerCase().includes('높')||s.toLowerCase().includes('비싼');
-}
+function isCheaper(v){const s=String(v||'').trim();return s.startsWith('-')||s.includes('↓')||s.toLowerCase().includes('저렴');}
+function isPricier(v){const s=String(v||'').trim();return s.startsWith('+')||s.includes('↑')||s.toLowerCase().includes('높')||s.toLowerCase().includes('비싼');}
 
 // ── 카드 뷰 ──────────────────────────────────────────────
 function renderCards(){
@@ -765,15 +754,7 @@ function renderCards(){
       if(!brandMap[b]||r.날짜>brandMap[b].날짜) brandMap[b]=r;
     });
     const brandRows=Object.values(brandMap).sort((a,b)=>a.브랜드.localeCompare(b.브랜드));
-    // 이슈 중복 제거 (브랜드+이슈 조합)
-    const issueSeen = new Set();
-    const issueRows = rows.filter(r => {
-      if (!r.이슈사항 || !r.이슈사항.trim()) return false;
-      const key = r.브랜드 + '||' + r.이슈사항.trim();
-      if (issueSeen.has(key)) return false;
-      issueSeen.add(key);
-      return true;
-    });
+    const issueRows=rows.filter(r=>r.이슈사항&&r.이슈사항.trim());
     const issueCount=issueRows.length;
 
     const brandHtml=brandRows.map(r=>`
@@ -810,8 +791,8 @@ function renderCards(){
           <div style="display:flex;padding:4px 16px 6px;gap:10px;">
             <span style="font-size:10px;color:var(--text-muted);width:90px;flex-shrink:0;">브랜드</span>
             <span style="font-size:10px;color:var(--text-muted);flex:1;">판매가 / 세일가</span>
-            <span style="font-size:10px;color:var(--text-muted);width:80px;text-align:center;">vs 브레짜</span>
-            <span style="font-size:10px;color:var(--text-muted);width:80px;text-align:center;">전주대비</span>
+            <span style="font-size:10px;color:var(--text-muted);width:70px;text-align:center;">vs 브레짜</span>
+            <span style="font-size:10px;color:var(--text-muted);width:56px;text-align:right;">전주대비</span>
             <span style="font-size:10px;color:var(--text-muted);width:72px;">세일 채널</span>
           </div>
           ${brandHtml}
@@ -862,15 +843,7 @@ function thSort(col,el){
 
 // ── 이슈 뷰 ──────────────────────────────────────────────
 function renderIssue(){
-  // 브랜드+이슈 중복 제거
-  const seen = new Set();
-  let rows=FILTERED.filter(r=>{
-    if(!r.이슈사항||!r.이슈사항.trim()) return false;
-    const key = r.브랜드 + '||' + r.이슈사항.trim();
-    if(seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  }).sort((a,b)=>(b.날짜||'').localeCompare(a.날짜||''));
+  let rows=FILTERED.filter(r=>r.이슈사항&&r.이슈사항.trim()).sort((a,b)=>(b.날짜||'').localeCompare(a.날짜||''));
 
   if(!rows.length){
     document.getElementById('issuePanel').innerHTML=`<div class="empty"><div class="empty-icon">✅</div><div class="empty-title">이슈 없음</div></div>`;
@@ -894,38 +867,36 @@ function renderIssue(){
 
 // ── 헬퍼 ──────────────────────────────────────────────────
 function vsB(v1,v2){
-  const raw = (v2!==null&&v2!==undefined&&v2!=='') ? v2 : v1;
-  if(raw===null||raw===undefined||raw===''||raw==='-'||raw==='—') return '<span class="vs-badge vs-same">—</span>';
-  const n = typeof raw==='number' ? raw : parseFloat(String(raw).replace(/[^0-9.-]/g,''));
-  const disp = typeof raw==='number' ? Math.abs(raw).toLocaleString() : String(raw).replace(/[^0-9.-]/g,'');
-  if(!isNaN(n)&&n<0) return `<span class="vs-badge vs-cheaper">▼ ${Math.abs(n).toLocaleString()}</span>`;
-  if(!isNaN(n)&&n>0) return `<span class="vs-badge vs-pricier">▲ ${Math.abs(n).toLocaleString()}</span>`;
-  if(!isNaN(n)&&n===0) return `<span class="vs-badge vs-same">0</span>`;
-  return `<span class="vs-badge vs-same">${raw}</span>`;
+  const v=v2||v1||'';
+  if(!v||v==='—') return '<span class="vs-badge vs-same">—</span>';
+  if(isCheaper(v)) return `<span class="vs-badge vs-cheaper">▼ ${v}</span>`;
+  if(isPricier(v)) return `<span class="vs-badge vs-pricier">▲ ${v}</span>`;
+  return `<span class="vs-badge vs-same">${v}</span>`;
 }
 
 function vsBadge(v){
-  if(v===null||v===undefined||v===''||v==='-'||v==='—') return '<span style="color:var(--text-muted)">—</span>';
-  const n = typeof v==='number' ? v : parseFloat(String(v).replace(/[^0-9.-]/g,''));
-  if(!isNaN(n)&&n<0) return `<span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ ${Math.abs(n).toLocaleString()}</span>`;
-  if(!isNaN(n)&&n>0) return `<span style="font-size:11px;font-weight:700;color:#b02050;">▲ ${Math.abs(n).toLocaleString()}</span>`;
-  if(!isNaN(n)&&n===0) return `<span style="font-size:11px;color:var(--text-muted);">0</span>`;
-  return `<span style="font-size:11px;color:var(--text-muted);">${v}</span>`;
+  const s=String(v||'').trim();
+  if(!s||s==='—') return '<span style="color:var(--text-muted)">—</span>';
+  if(isCheaper(s)) return `<span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ ${s}</span>`;
+  if(isPricier(s)) return `<span style="font-size:11px;font-weight:700;color:#b02050;">▲ ${s}</span>`;
+  return `<span style="font-size:11px;color:var(--text-muted);">${s}</span>`;
 }
 
 function changeC(v){
-  if(v===null||v===undefined||v===''||v==='-'||v==='—') return '<span class="ch-same">—</span>';
-  const n = typeof v==='number' ? v : parseFloat(String(v).replace(/[^0-9.-]/g,''));
-  if(!isNaN(n)&&n===0) return '<span class="ch-same">—</span>';
-  if(!isNaN(n)&&n<0) return `<span class="ch-down">▼${Math.abs(n).toLocaleString()}</span>`;
-  if(!isNaN(n)&&n>0) return `<span class="ch-up">▲${n.toLocaleString()}</span>`;
-  return `<span class="ch-same">${v}</span>`;
+  const s=String(v||'').trim();
+  if(!s||s==='—'||s==='0') return '<span class="ch-same">—</span>';
+  if(s.startsWith('-')||parseFloat(s.replace(/[^0-9.-]/g,''))<0) return `<span class="ch-down">▼${s}</span>`;
+  if(s.startsWith('+')||parseFloat(s.replace(/[^0-9.-]/g,''))>0) return `<span class="ch-up">▲${s}</span>`;
+  return `<span class="ch-same">${s}</span>`;
 }
 
 function setStatus(items){document.getElementById('statusRow').innerHTML=items.map(i=>`<span class="chip ${i.c}">${i.t}</span>`).join('');}
 
-window.addEventListener('load',()=>{ loadData(); });
+window.addEventListener('load',()=>{
+  const saved=localStorage.getItem('compUrl');
+  if(saved){document.getElementById('scriptUrl').value=saved;loadData();}
+});
 </script>
 
 
-<script id="brz-jsonp" src="./babybrezza_competitor_dashboard_files/exec"></script></body></html>
+</body></html>
