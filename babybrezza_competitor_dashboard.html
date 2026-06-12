@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0058)file:///C:/Users/IVG/Downloads/competitor_dashboard_4.html -->
+<!-- saved from url=(0067)file:///C:/Users/IVG/Downloads/babybrezza_competitor_dashboard.html -->
 <html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -159,7 +159,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 <div class="header">
   <div class="header-left">
     <div class="logo-mark">🔍</div>
-    <div class="header-title">경쟁사 동향 대시보드</div>
+    <div class="header-title">베이비브레짜 경쟁사 동향 대시보드</div>
   </div>
   <div class="header-right">
     <span class="sync-badge" id="syncBadge">최신 2026-06-11</span>
@@ -168,14 +168,11 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 </div>
 
 <!-- CONNECT -->
-<div class="connect-bar">
-  <div class="conn-icon">📊</div>
-  <span class="conn-label">Apps Script URL</span>
-  <input type="text" class="conn-input" id="scriptUrl" placeholder="https://script.google.com/macros/s/…/exec">
-  <button class="conn-btn" id="loadBtn" onclick="loadData()">📥 불러오기</button>
+<div class="connect-bar" style="justify-content:flex-end">
+  <span class="sync-badge" id="syncBadge2" style="display:none"></span>
 </div>
 <div style="padding:0 28px;background:#fff;border-bottom:1px solid var(--border);">
-  <div class="status-row" id="statusRow" style="padding-bottom:8px;"><span class="chip chip-ok">✅ 255건 로드</span><span class="chip chip-info">📅 최신: 2026-06-11</span></div>
+  <div class="status-row" id="statusRow" style="padding-bottom:8px;"><span class="chip chip-error">❌ 연결 실패</span></div>
 </div>
 
 <!-- TOP FILTER -->
@@ -582,43 +579,62 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 let RAW=[], FILTERED=[], SEL_WEEK='', SEL_MONTH='', CUR_VIEW='card';
 let T_COL=null, T_DIR='desc';
 
-// ── 로드 ──────────────────────────────────────────────────
-async function loadData(){
-  const url=document.getElementById('scriptUrl').value.trim();
-  if(!url){setStatus([{t:'❌ URL을 입력해주세요',c:'chip-error'}]);return;}
-  const btn=document.getElementById('loadBtn');
-  btn.disabled=true;btn.textContent='⏳ 불러오는 중...';
-  setStatus([{t:'🔄 연결 중...',c:'chip-info'}]);
-  try{
-    const resp=await fetch(url,{redirect:'follow'});
-    if(!resp.ok) throw new Error('HTTP '+resp.status);
-    const text=await resp.text();
-    let json;
-    try{json=JSON.parse(text);}
-    catch(e){
-      if(text.includes('signin')||text.includes('accounts.google')) throw new Error('구글 로그인 리디렉션 — 배포 액세스 권한을 "모든 사용자"로 설정하세요');
-      throw new Error('JSON 파싱 실패');
+// ── Apps Script URL 고정 ──────────────────────────────────────
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzCh4iD941S0rwQLHYNCJYqbkb-exVTZKkETkRS90xw5L8hot3Xi9rJRe0It0fOFNNs/exec';
+
+// ── 로드 (JSONP 방식 - CORS 우회) ────────────────────────────
+function loadData(){
+  setStatus([{t:'🔄 데이터 불러오는 중...',c:'chip-info'}]);
+  const refreshBtn = document.getElementById('refreshBtn');
+  if(refreshBtn) { refreshBtn.disabled=true; refreshBtn.textContent='⏳ 불러오는 중...'; }
+
+  // 기존 스크립트 제거
+  const old = document.getElementById('brz-jsonp');
+  if(old) old.remove();
+
+  // 타임아웃 5초
+  const timer = setTimeout(()=>{
+    if(refreshBtn){refreshBtn.disabled=false;refreshBtn.textContent='↻ 새로고침';}
+    setStatus([{t:'⚠️ 연결 시간 초과 — 샘플 데이터 표시',c:'chip-warn'}]);
+  }, 5000);
+
+  window.__brzCallback = function(json){
+    clearTimeout(timer);
+    const old2 = document.getElementById('brz-jsonp');
+    if(old2) old2.remove();
+    if(refreshBtn){refreshBtn.disabled=false;refreshBtn.textContent='↻ 새로고침';}
+    try{
+      const rows = json.rows || json.data || [];
+      if(!rows.length) throw new Error('데이터 없음');
+      RAW=rows.map(r=>({
+        ...r,
+        판매가: pNum(r.판매가),
+        세일가: pNum(r.세일가),
+        전주대비증감: String(r['전주대비 증감']||r.전주대비증감||'').trim(),
+        브레짜대비판매가: String(r['브레짜 가격대비']||r.브레짜대비판매가||'').trim(),
+        브레짜대비세일가: String(r['브레짜 가격대비_세일']||r.브레짜대비세일가||'').trim(),
+        최저가채널: String(r['최저가 채널']||r.최저가채널||'').trim(),
+        이슈사항: String(r.이슈사항||'').trim(),
+      }));
+      buildFilters();applyFilters();
+      const latest=getLatest();
+      setStatus([{t:'✅ '+RAW.length+'건 로드',c:'chip-ok'},{t:'📅 최신: '+latest,c:'chip-info'}]);
+      document.getElementById('refreshBtn').style.display='inline-block';
+      document.getElementById('syncBadge').textContent='최신 '+latest;
+    }catch(e){
+      setStatus([{t:'❌ '+e.message,c:'chip-error'}]);
     }
-    if(!json.rows||!Array.isArray(json.rows)) throw new Error('데이터 형식 오류');
-    RAW=json.rows.map(r=>({
-      ...r,
-      판매가: pNum(r.판매가),
-      세일가: pNum(r.세일가),
-      전주대비증감: String(r['전주대비 증감']||r.전주대비증감||'').trim(),
-      브레짜대비판매가: String(r['브레짜 가격대비']||r.브레짜대비판매가||'').trim(),
-      브레짜대비세일가: String(r['브레짜 가격대비_세일']||r.브레짜대비세일가||'').trim(),
-      최저가채널: String(r['최저가 채널']||r.최저가채널||'').trim(),
-      이슈사항: String(r.이슈사항||'').trim(),
-    }));
-    localStorage.setItem('compUrl',url);
-    buildFilters();applyFilters();
-    const latest=getLatest();
-    setStatus([{t:'✅ '+RAW.length+'건 로드',c:'chip-ok'},{t:'📅 최신: '+latest,c:'chip-info'}]);
-    document.getElementById('refreshBtn').style.display='inline-block';
-    document.getElementById('syncBadge').textContent='최신 '+latest;
-  }catch(e){
-    setStatus([{t:'❌ '+e.message,c:'chip-error'},{t:'💡 Apps Script 배포 URL 확인하세요',c:'chip-warn'}]);
-  }finally{btn.disabled=false;btn.textContent='📥 불러오기';}
+  };
+
+  const script = document.createElement('script');
+  script.id = 'brz-jsonp';
+  script.src = APPS_SCRIPT_URL + '?callback=__brzCallback';
+  script.onerror = ()=>{
+    clearTimeout(timer);
+    if(refreshBtn){refreshBtn.disabled=false;refreshBtn.textContent='↻ 새로고침';}
+    setStatus([{t:'❌ 연결 실패',c:'chip-error'}]);
+  };
+  document.body.appendChild(script);
 }
 
 function pNum(v){if(!v&&v!==0) return 0;const s=String(v).replace(/[^0-9.-]/g,'');return parseFloat(s)||0;}
@@ -873,11 +889,8 @@ function changeC(v){
 
 function setStatus(items){document.getElementById('statusRow').innerHTML=items.map(i=>`<span class="chip ${i.c}">${i.t}</span>`).join('');}
 
-window.addEventListener('load',()=>{
-  const saved=localStorage.getItem('compUrl');
-  if(saved){document.getElementById('scriptUrl').value=saved;loadData();}
-});
+window.addEventListener('load',()=>{ loadData(); });
 </script>
 
 
-</body></html>
+<script id="brz-jsonp" src="./babybrezza_competitor_dashboard_files/exec"></script></body></html>
