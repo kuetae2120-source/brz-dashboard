@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0069)file:///C:/Users/IVG/Downloads/babybrezza_competitor_dashboard_3.html -->
+<!-- saved from url=(0069)file:///C:/Users/IVG/Downloads/babybrezza_competitor_dashboard_4.html -->
 <html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,7 +78,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 .sc-label{font-size:11px;color:var(--text-dim);}
 
 /* ── CARD VIEW ── */
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:16px;}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px;}
 .item-card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.04);transition:box-shadow .2s;}
 .item-card:hover{box-shadow:0 4px 16px rgba(91,83,240,.1);}
 .card-header{padding:13px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--surface2);}
@@ -88,21 +88,21 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
 .issue-count{font-size:11px;color:#c53060;background:rgba(240,78,110,.08);border:1px solid rgba(240,78,110,.2);padding:2px 8px;border-radius:20px;}
 
 /* 브랜드 행 */
-.brand-row{display:flex;align-items:center;padding:10px 16px;border-bottom:1px solid rgba(228,230,239,.6);gap:10px;transition:background .1s;}
+.brand-row{display:flex;align-items:center;padding:8px 16px;border-bottom:1px solid rgba(228,230,239,.6);gap:8px;transition:background .1s;}
 .brand-row:last-child{border-bottom:none;}
 .brand-row:hover{background:rgba(91,83,240,.02);}
-.brand-name{font-size:13px;font-weight:600;width:90px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.price-col{flex:1;min-width:0;}
-.price-main{font-size:13px;font-weight:700;font-family:'DM Mono',monospace;color:var(--text);}
-.price-sale{font-size:11px;color:var(--accent3);font-family:'DM Mono',monospace;margin-top:1px;}
+.brand-name{font-size:12px;font-weight:600;width:80px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.price-col{flex:1;min-width:80px;}
+.price-main{font-size:12px;font-weight:700;font-family:'DM Mono',monospace;color:var(--text);white-space:nowrap;}
+.price-sale{font-size:11px;color:var(--accent3);font-family:'DM Mono',monospace;margin-top:1px;white-space:nowrap;}
 .vs-col{width:80px;flex-shrink:0;text-align:center;}
-.vs-badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;white-space:nowrap;display:inline-block;}
+.vs-badge{font-size:10px;font-weight:700;padding:2px 6px;border-radius:20px;white-space:nowrap;display:inline-block;}
 .vs-cheaper{background:rgba(23,178,106,.1);color:#0e7a4a;border:1px solid rgba(23,178,106,.25);}
 .vs-pricier{background:rgba(240,78,110,.1);color:#b02050;border:1px solid rgba(240,78,110,.25);}
 .vs-same{background:var(--surface2);color:var(--text-muted);border:1px solid var(--border);}
 .change-col{width:80px;flex-shrink:0;text-align:center;}
-.ch-up{font-size:10px;font-weight:700;color:#b02050;background:rgba(240,78,110,.1);border:1px solid rgba(240,78,110,.25);padding:2px 7px;border-radius:20px;white-space:nowrap;display:inline-block;}
-.ch-down{font-size:10px;font-weight:700;color:#0e7a4a;background:rgba(23,178,106,.1);border:1px solid rgba(23,178,106,.25);padding:2px 7px;border-radius:20px;white-space:nowrap;display:inline-block;}
+.ch-up{font-size:10px;font-weight:700;color:#b02050;background:rgba(240,78,110,.1);border:1px solid rgba(240,78,110,.25);padding:2px 6px;border-radius:20px;white-space:nowrap;display:inline-block;}
+.ch-down{font-size:10px;font-weight:700;color:#0e7a4a;background:rgba(23,178,106,.1);border:1px solid rgba(23,178,106,.25);padding:2px 6px;border-radius:20px;white-space:nowrap;display:inline-block;}
 .ch-same{font-size:11px;color:var(--text-muted);}
 .issue-section{background:rgba(240,78,110,.025);border-top:1px dashed rgba(240,78,110,.2);padding:10px 16px 10px;display:flex;flex-direction:column;gap:5px;}
   .issue-section-title{font-size:10px;font-weight:700;color:#b02050;letter-spacing:.8px;text-transform:uppercase;margin-bottom:2px;display:flex;align-items:center;gap:4px;}
@@ -172,7 +172,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
   <span class="sync-badge" id="syncBadge2" style="display:none"></span>
 </div>
 <div style="padding:0 28px;background:#fff;border-bottom:1px solid var(--border);">
-  <div class="status-row" id="statusRow" style="padding-bottom:8px;"><span class="chip chip-ok">✅ 256건 로드</span><span class="chip chip-info">📅 최신: 2026-06-11</span></div>
+  <div class="status-row" id="statusRow" style="padding-bottom:8px;"><span class="chip chip-error">❌ 연결 실패</span></div>
 </div>
 
 <!-- TOP FILTER -->
@@ -185,12 +185,12 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
   <span class="tf-label">월</span>
   <select class="tf-select" id="monthFilter" onchange="setMonth(this.value)"><option value="2026-04">2026-04</option><option value="2026-05">2026-05</option><option value="2026-06">2026-06</option></select>
   <span class="tf-label">주차</span>
-  <div class="week-chips" id="weekChips"><button class="wc " onclick="setWeek(&#39;2026-06-04&#39;)">2026-06-04</button><button class="wc " onclick="setWeek(&#39;2026-06-11&#39;)">2026-06-11</button></div>
+  <div class="week-chips" id="weekChips"><button class="wc " onclick="setWeek(&#39;2026-06-04&#39;)">2026-06-04</button><button class="wc on" onclick="setWeek(&#39;2026-06-11&#39;)">2026-06-11</button></div>
   <div class="divider" style="margin-left:auto;"></div>
   <div class="view-toggle">
-    <button class="vt-btn" id="btnCard" onclick="setView(&#39;card&#39;)">🗂 카드</button>
+    <button class="vt-btn on" id="btnCard" onclick="setView(&#39;card&#39;)">🗂 카드</button>
     <button class="vt-btn" id="btnTable" onclick="setView(&#39;table&#39;)">📋 테이블</button>
-    <button class="vt-btn on" id="btnIssue" onclick="setView(&#39;issue&#39;)">⚠️ 이슈</button>
+    <button class="vt-btn" id="btnIssue" onclick="setView(&#39;issue&#39;)">⚠️ 이슈</button>
   </div>
 </div>
 
@@ -200,24 +200,24 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
   <div class="summary-row">
     <div class="sc">
       <div class="sc-icon purple">🏷️</div>
-      <div><div class="sc-val purple" id="sumBrands">17개</div><div class="sc-label">모니터링 브랜드</div></div>
+      <div><div class="sc-val purple" id="sumBrands">16개</div><div class="sc-label">모니터링 브랜드</div></div>
     </div>
     <div class="sc">
       <div class="sc-icon green">📉</div>
-      <div><div class="sc-val green" id="sumCheaper">29건</div><div class="sc-label">브레짜보다 저렴</div></div>
+      <div><div class="sc-val green" id="sumCheaper">17건</div><div class="sc-label">브레짜보다 저렴</div></div>
     </div>
     <div class="sc">
       <div class="sc-icon red">📈</div>
-      <div><div class="sc-val red" id="sumPricier">6건</div><div class="sc-label">브레짜보다 비쌈</div></div>
+      <div><div class="sc-val red" id="sumPricier">0건</div><div class="sc-label">브레짜보다 비쌈</div></div>
     </div>
     <div class="sc">
       <div class="sc-icon orange">⚠️</div>
-      <div><div class="sc-val orange" id="sumIssues">17건</div><div class="sc-label">이번 기간 이슈</div></div>
+      <div><div class="sc-val orange" id="sumIssues">9건</div><div class="sc-label">이번 기간 이슈</div></div>
     </div>
   </div>
 
   <!-- 카드 뷰 -->
-  <div id="viewCard" style="display: none;">
+  <div id="viewCard">
     <div class="cards-grid" id="cardsGrid">
       <div class="item-card">
         <div class="card-header">
@@ -242,7 +242,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">229,000원</div>
           
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 28,000</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -28000</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -253,7 +253,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">538,000원</div>
           <div class="price-sale">세일 537,000원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-pricier">▲ 238,000</span></div>
+        <div class="vs-col"><span class="vs-badge vs-same">238000</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -264,7 +264,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">309,000원</div>
           <div class="price-sale">세일 293,550원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -275,7 +275,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">309,000원</div>
           <div class="price-sale">세일 299,000원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-pricier">▲ 5,450</span></div>
+        <div class="vs-col"><span class="vs-badge vs-same">5450</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -286,8 +286,8 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">259,000원</div>
           <div class="price-sale">세일 257,000원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 280,000</span></div>
-        <div class="change-col"><span class="ch-up">▲35,500</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -280000</span></div>
+        <div class="change-col"><span class="ch-up">▲35500</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
@@ -298,8 +298,8 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
         <div class="card-header">
           <div class="card-item-name">젖병 세척기</div>
           <div class="card-meta">
-            <span class="brand-count">7개 브랜드</span>
-            <span class="issue-count">⚠️ 5</span>
+            <span class="brand-count">6개 브랜드</span>
+            <span class="issue-count">⚠️ 3</span>
           </div>
         </div>
         <div style="padding:6px 0 2px;">
@@ -317,9 +317,9 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">399,000원</div>
           <div class="price-sale">세일 312,010원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 67,040</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -67040</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
-        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+        <div style="width:72px;flex-shrink:0;"></div>
       </div>
     
       <div class="brand-row">
@@ -328,9 +328,9 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">348,000원</div>
           <div class="price-sale">세일 347,000원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 32,050</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -32050</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
-        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+        <div style="width:72px;flex-shrink:0;"></div>
       </div>
     
       <div class="brand-row">
@@ -339,9 +339,9 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">399,000원</div>
           <div class="price-sale">세일 379,050원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
-        <div class="change-col"><span class="ch-same">—</span></div>
-        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -</span></div>
+        <div class="change-col"><span class="ch-down">▼-</span></div>
+        <div style="width:72px;flex-shrink:0;"></div>
       </div>
     
       <div class="brand-row">
@@ -350,20 +350,9 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">399,000원</div>
           
         </div>
-        <div class="vs-col"><span class="vs-badge vs-pricier">▲ 19,950</span></div>
+        <div class="vs-col"><span class="vs-badge vs-same">19950</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
-        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
-      </div>
-    
-      <div class="brand-row">
-        <div class="brand-name" title="오르테">오르테</div>
-        <div class="price-col">
-          <div class="price-main">349,000원</div>
-          <div class="price-sale">세일 329,000원</div>
-        </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 50,050</span></div>
-        <div class="change-col"><span class="ch-same">—</span></div>
-        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+        <div style="width:72px;flex-shrink:0;"></div>
       </div>
     
       <div class="brand-row">
@@ -372,9 +361,9 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">379,000원</div>
           
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 50</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -50</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
-        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+        <div style="width:72px;flex-shrink:0;"></div>
       </div>
     
       <div class="brand-row">
@@ -383,16 +372,16 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">499,000원</div>
           
         </div>
-        <div class="vs-col"><span class="vs-badge vs-pricier">▲ 119,950</span></div>
+        <div class="vs-col"><span class="vs-badge vs-same">119950</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
-        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+        <div style="width:72px;flex-shrink:0;"></div>
       </div>
     
         </div>
         
       <div class="issue-section">
         <div class="issue-section-title">⚠️ 주요 이슈</div>
-        <div class="issue-line"><strong>꿈비</strong> 6/10 15시 네이버 LIVE 진행</div><div class="issue-line"><strong>오르테</strong> 네이버 6월 슈퍼적립</div><div class="issue-line"><strong>육아원칙</strong> 6/8 10시 네이버 LIVE 진행</div><div class="issue-line"><strong>육아원칙</strong> 육아원칙 전주 대비 판매가 인상</div><div class="issue-line"><strong>캄토</strong> 품절</div>
+        <div class="issue-line"><strong>꿈비</strong> 6/10 15시 네이버 LIVE 진행</div><div class="issue-line"><strong>육아원칙</strong> 6/8 10시 네이버 LIVE 진행</div><div class="issue-line"><strong>캄토</strong> 품절</div>
       </div>
       </div>
       <div class="item-card">
@@ -400,7 +389,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="card-item-name">젖병 소독기 UV</div>
           <div class="card-meta">
             <span class="brand-count">6개 브랜드</span>
-            <span class="issue-count">⚠️ 5</span>
+            <span class="issue-count">⚠️ 3</span>
           </div>
         </div>
         <div style="padding:6px 0 2px;">
@@ -418,7 +407,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">149,000원</div>
           <div class="price-sale">세일 148,000원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 231,050</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -231050</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -429,8 +418,8 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">399,000원</div>
           <div class="price-sale">세일 379,050원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
-        <div class="change-col"><span class="ch-same">—</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -</span></div>
+        <div class="change-col"><span class="ch-down">▼-</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
@@ -440,7 +429,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">209,700원</div>
           
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 169,350</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -169350</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -451,8 +440,8 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">369,000원</div>
           <div class="price-sale">세일 347,700원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 31,350</span></div>
-        <div class="change-col"><span class="ch-down">▼1,000</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -31350</span></div>
+        <div class="change-col"><span class="ch-down">▼-1000</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
@@ -462,7 +451,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">378,000원</div>
           <div class="price-sale">세일 359,100원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 19,950</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -19950</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -473,7 +462,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">239,000원</div>
           <div class="price-sale">세일 226,100원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 152,950</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -152950</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -482,7 +471,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
         
       <div class="issue-section">
         <div class="issue-section-title">⚠️ 주요 이슈</div>
-        <div class="issue-line"><strong>스펙트라</strong> 스펙트라 전주 대비 판매가 인하</div><div class="issue-line"><strong>유팡</strong> 6/11 11시 네이버 맘편한육아 LIVE</div><div class="issue-line"><strong>폴레드</strong> 6/12 11시 네이버 LIVE</div><div class="issue-line"><strong>폴레드</strong> 6/8 19:00 네이버 LIVE</div><div class="issue-line"><strong>해님</strong> 6/9 11시 네이버 LIVE 진행</div>
+        <div class="issue-line"><strong>유팡</strong> 6/11 11시 네이버 맘편한육아 LIVE</div><div class="issue-line"><strong>폴레드</strong> 6/12 11시 네이버 LIVE</div><div class="issue-line"><strong>해님</strong> 6/9 11시 네이버 LIVE 진행</div>
       </div>
       </div>
       <div class="item-card">
@@ -508,8 +497,8 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">149,000원</div>
           
         </div>
-        <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
-        <div class="change-col"><span class="ch-same">—</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -</span></div>
+        <div class="change-col"><span class="ch-down">▼-</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
@@ -519,7 +508,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">139,000원</div>
           
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 10,000</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -10000</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -530,8 +519,8 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">129,000원</div>
           <div class="price-sale">세일 114,240원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 34,760</span></div>
-        <div class="change-col"><span class="ch-up">▲12,900</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -34760</span></div>
+        <div class="change-col"><span class="ch-up">▲12900</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="쿠팡">쿠팡</span></div>
       </div>
     
@@ -541,7 +530,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <div class="price-main">153,000원</div>
           <div class="price-sale">세일 141,550원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 7,450</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ -7450</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="쿠팡">쿠팡</span></div>
       </div>
@@ -556,7 +545,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
   </div>
 
   <!-- 테이블 뷰 -->
-  <div id="viewTable" style="display: none;">
+  <div id="viewTable" style="display:none;">
     <div class="table-wrap">
       <div class="table-top">
         <span class="table-top-title">전체 데이터</span>
@@ -575,654 +564,14 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
           <th>세일 채널</th>
           <th>이슈사항</th>
         </tr></thead>
-        <tbody id="tbTable"><tr>
-      <td style="font-weight:600;">분유제조기</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">리하스</span></td>
-      <td class="mono">229,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 80,000</span></td>
-      <td class="mono">224,400원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 84,600</span></td>
-      <td><span class="ch-down">▼120,000</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">분유제조기</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">리하스</span></td>
-      <td class="mono">229,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 30,000</span></td>
-      <td class="mono">229,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 28,000</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">분유제조기</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">버들</span></td>
-      <td class="mono">538,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#b02050;">▲ 229,000</span></td>
-      <td class="mono">537,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#b02050;">▲ 228,000</span></td>
-      <td><span class="ch-up">▲139,000</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">분유제조기</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">버들</span></td>
-      <td class="mono">538,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#b02050;">▲ 229,000</span></td>
-      <td class="mono">537,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#b02050;">▲ 238,000</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">분유제조기</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">베이비브레짜</span></td>
-      <td class="mono">309,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td class="mono">293,550원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">분유제조기</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">베이비브레짜</span></td>
-      <td class="mono">309,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td class="mono">293,550원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">분유제조기</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">브라비</span></td>
-      <td class="mono">309,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td class="mono">299,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 10,000</span></td>
-      <td><span class="ch-down">▼39,000</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">분유제조기</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">브라비</span></td>
-      <td class="mono">309,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td class="mono">299,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#b02050;">▲ 5,450</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">분유제조기</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">에디슨</span></td>
-      <td class="mono">223,500원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 85,500</span></td>
-      <td class="mono">259,260원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 49,740</span></td>
-      <td><span class="ch-down">▼275,500</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">분유제조기</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">에디슨</span></td>
-      <td class="mono">259,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 279,000</span></td>
-      <td class="mono">257,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 280,000</span></td>
-      <td><span class="ch-up">▲35,500</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 세척기</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">꿈비</span></td>
-      <td class="mono">399,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td class="mono">312,010원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 86,990</span></td>
-      <td><span class="ch-up">▲399,000</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 세척기</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">꿈비</span></td>
-      <td class="mono">399,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td class="mono">312,010원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 67,040</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="6/10 15시 네이버 LIVE 진행">6/10 15시 네이버 LIVE 진행</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 세척기</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">버들</span></td>
-      <td class="mono">348,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 51,000</span></td>
-      <td class="mono">347,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 52,000</span></td>
-      <td><span class="ch-up">▲348,000</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 세척기</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">버들</span></td>
-      <td class="mono">348,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 51,000</span></td>
-      <td class="mono">347,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 32,050</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 세척기</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">베이비브레짜</span></td>
-      <td class="mono">399,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td class="mono">379,050원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 세척기</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">베이비브레짜</span></td>
-      <td class="mono">399,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td class="mono">379,050원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 세척기</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">소베맘</span></td>
-      <td class="mono">399,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td class="mono">399,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td><span class="ch-up">▲399,000</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 세척기</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">소베맘</span></td>
-      <td class="mono">399,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td class="mono">399,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#b02050;">▲ 19,950</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 세척기</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">오르테</span></td>
-      <td class="mono">349,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 50,000</span></td>
-      <td class="mono">329,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 70,000</span></td>
-      <td><span class="ch-up">▲349,000</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="네이버 6월 슈퍼적립">네이버 6월 슈퍼적립</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 세척기</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">오르테</span></td>
-      <td class="mono">349,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 50,000</span></td>
-      <td class="mono">329,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 50,050</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 세척기</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">육아원칙</span></td>
-      <td class="mono">379,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 20,000</span></td>
-      <td class="mono">379,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 20,000</span></td>
-      <td><span class="ch-up">▲30,000</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="육아원칙 전주 대비 판매가 인상">육아원칙 전주 대비 판매가 인상</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 세척기</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">육아원칙</span></td>
-      <td class="mono">379,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 20,000</span></td>
-      <td class="mono">379,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 50</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="6/8 10시 네이버 LIVE 진행">6/8 10시 네이버 LIVE 진행</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 세척기</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">캄토</span></td>
-      <td class="mono">499,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#b02050;">▲ 100,000</span></td>
-      <td class="mono">499,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#b02050;">▲ 100,000</span></td>
-      <td><span class="ch-up">▲100,000</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="품절">품절</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 세척기</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">캄토</span></td>
-      <td class="mono">499,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#b02050;">▲ 100,000</span></td>
-      <td class="mono">499,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#b02050;">▲ 119,950</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="품절">품절</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 스팀</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">베이비브레짜</span></td>
-      <td class="mono">149,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td class="mono">149,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="네이버 6월 슈퍼적립">네이버 6월 슈퍼적립</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 스팀</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">베이비브레짜</span></td>
-      <td class="mono">149,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td class="mono">149,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="네이버 6월 슈퍼적립">네이버 6월 슈퍼적립</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 스팀</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">벤브와</span></td>
-      <td class="mono">139,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 10,000</span></td>
-      <td class="mono">139,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 10,000</span></td>
-      <td><span class="ch-up">▲139,000</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 스팀</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">벤브와</span></td>
-      <td class="mono">139,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 10,000</span></td>
-      <td class="mono">139,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 10,000</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 스팀</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">에디슨</span></td>
-      <td class="mono">116,100원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 32,900</span></td>
-      <td class="mono">114,100원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 34,900</span></td>
-      <td><span class="ch-up">▲116,100</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="에디슨 전주 대비 판매가 인상">에디슨 전주 대비 판매가 인상</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 스팀</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">에디슨</span></td>
-      <td class="mono">129,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 20,000</span></td>
-      <td class="mono">114,240원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 34,760</span></td>
-      <td><span class="ch-up">▲12,900</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">쿠팡</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="에디슨 전주 대비 판매가 인상">에디슨 전주 대비 판매가 인상</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 스팀</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">필립스 아벤트</span></td>
-      <td class="mono">153,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#b02050;">▲ 4,000</span></td>
-      <td class="mono">141,550원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 7,450</span></td>
-      <td><span class="ch-up">▲153,000</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="네이버 6월 슈퍼적립">네이버 6월 슈퍼적립</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 스팀</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">필립스 아벤트</span></td>
-      <td class="mono">153,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#b02050;">▲ 4,000</span></td>
-      <td class="mono">141,550원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 7,450</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">쿠팡</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="네이버 6월 슈퍼적립">네이버 6월 슈퍼적립</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 UV</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">나리몽</span></td>
-      <td class="mono">149,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 250,000</span></td>
-      <td class="mono">148,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 251,000</span></td>
-      <td><span class="ch-down">▼250,000</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 UV</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">나리몽</span></td>
-      <td class="mono">149,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 250,000</span></td>
-      <td class="mono">148,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 231,050</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 UV</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">베이비브레짜</span></td>
-      <td class="mono">399,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td class="mono">379,050원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 UV</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">베이비브레짜</span></td>
-      <td class="mono">399,000원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td class="mono">379,050원</td>
-      <td><span style="color:var(--text-muted)">—</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 UV</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">스펙트라</span></td>
-      <td class="mono">209,700원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 189,300</span></td>
-      <td class="mono">209,700원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 189,300</span></td>
-      <td><span class="ch-up">▲209,700</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="스펙트라 전주 대비 판매가 인하">스펙트라 전주 대비 판매가 인하</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 UV</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">스펙트라</span></td>
-      <td class="mono">209,700원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 189,300</span></td>
-      <td class="mono">209,700원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 169,350</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 UV</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">유팡</span></td>
-      <td class="mono">370,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 29,000</span></td>
-      <td class="mono">348,650원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 50,350</span></td>
-      <td><span class="ch-up">▲370,000</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 UV</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">유팡</span></td>
-      <td class="mono">369,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 30,000</span></td>
-      <td class="mono">347,700원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 31,350</span></td>
-      <td><span class="ch-down">▼1,000</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="6/11 11시 네이버 맘편한육아 LIVE">6/11 11시 네이버 맘편한육아 LIVE</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 UV</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">폴레드</span></td>
-      <td class="mono">378,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 21,000</span></td>
-      <td class="mono">359,100원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 39,900</span></td>
-      <td><span class="ch-up">▲378,000</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="6/8 19:00 네이버 LIVE">6/8 19:00 네이버 LIVE</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 UV</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">폴레드</span></td>
-      <td class="mono">378,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 21,000</span></td>
-      <td class="mono">359,100원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 19,950</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="6/12 11시 네이버 LIVE">6/12 11시 네이버 LIVE</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 UV</td>
-      <td class="mono" style="font-size:11px;">2026-06-04</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">해님</span></td>
-      <td class="mono">239,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 160,000</span></td>
-      <td class="mono">226,100원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 172,900</span></td>
-      <td><span class="ch-up">▲239,000</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">—</td>
-      <td style="max-width:200px;"><span style="color:var(--text-muted);font-size:11px;">—</span></td>
-    </tr><tr>
-      <td style="font-weight:600;">젖병 소독기 UV</td>
-      <td class="mono" style="font-size:11px;">2026-06-11</td>
-      <td><span style="font-size:11px;font-weight:700;background:rgba(91,83,240,.08);color:#4840c8;border:1px solid rgba(91,83,240,.2);padding:2px 8px;border-radius:4px;">해님</span></td>
-      <td class="mono">239,000원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 160,000</span></td>
-      <td class="mono">226,100원</td>
-      <td><span style="font-size:11px;font-weight:700;color:#0e7a4a;">▼ 152,950</span></td>
-      <td><span class="ch-same">—</span></td>
-      <td style="font-size:11px;color:var(--text-dim);">네이버</td>
-      <td style="max-width:200px;"><span style="font-size:11px;color:#b02050;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:default;" title="6/9 11시 네이버 LIVE 진행">6/9 11시 네이버 LIVE 진행</span></td>
-    </tr></tbody>
+        <tbody id="tbTable"></tbody>
       </table>
     </div>
   </div>
 
   <!-- 이슈 뷰 -->
-  <div id="viewIssue" style="display: block;">
-    <div class="issue-panel" id="issuePanel">
-    <div class="issue-item">
-      <div class="issue-date">2026-06-11</div>
-      <div class="issue-main">
-        <div class="issue-tags">
-          <span class="tag-item">젖병 소독기 UV</span>
-          <span style="color:var(--text-muted);">·</span>
-          <span class="tag-brand">유팡</span>
-        </div>
-        <div class="issue-text">6/11 11시 네이버 맘편한육아 LIVE</div>
-        <div class="issue-price">판매가 369,000원 · 세일가 347,700원 · 세일 채널: 네이버</div>
-      </div>
-    </div>
-    <div class="issue-item">
-      <div class="issue-date">2026-06-11</div>
-      <div class="issue-main">
-        <div class="issue-tags">
-          <span class="tag-item">젖병 소독기 UV</span>
-          <span style="color:var(--text-muted);">·</span>
-          <span class="tag-brand">폴레드</span>
-        </div>
-        <div class="issue-text">6/12 11시 네이버 LIVE</div>
-        <div class="issue-price">판매가 378,000원 · 세일가 359,100원 · 세일 채널: 네이버</div>
-      </div>
-    </div>
-    <div class="issue-item">
-      <div class="issue-date">2026-06-11</div>
-      <div class="issue-main">
-        <div class="issue-tags">
-          <span class="tag-item">젖병 소독기 UV</span>
-          <span style="color:var(--text-muted);">·</span>
-          <span class="tag-brand">해님</span>
-        </div>
-        <div class="issue-text">6/9 11시 네이버 LIVE 진행</div>
-        <div class="issue-price">판매가 239,000원 · 세일가 226,100원 · 세일 채널: 네이버</div>
-      </div>
-    </div>
-    <div class="issue-item">
-      <div class="issue-date">2026-06-11</div>
-      <div class="issue-main">
-        <div class="issue-tags">
-          <span class="tag-item">젖병 세척기</span>
-          <span style="color:var(--text-muted);">·</span>
-          <span class="tag-brand">꿈비</span>
-        </div>
-        <div class="issue-text">6/10 15시 네이버 LIVE 진행</div>
-        <div class="issue-price">판매가 399,000원 · 세일가 312,010원 · 세일 채널: 네이버</div>
-      </div>
-    </div>
-    <div class="issue-item">
-      <div class="issue-date">2026-06-11</div>
-      <div class="issue-main">
-        <div class="issue-tags">
-          <span class="tag-item">젖병 세척기</span>
-          <span style="color:var(--text-muted);">·</span>
-          <span class="tag-brand">육아원칙</span>
-        </div>
-        <div class="issue-text">6/8 10시 네이버 LIVE 진행</div>
-        <div class="issue-price">판매가 379,000원 · 세일가 379,000원 · 세일 채널: 네이버</div>
-      </div>
-    </div>
-    <div class="issue-item">
-      <div class="issue-date">2026-06-04</div>
-      <div class="issue-main">
-        <div class="issue-tags">
-          <span class="tag-item">젖병 소독기 UV</span>
-          <span style="color:var(--text-muted);">·</span>
-          <span class="tag-brand">폴레드</span>
-        </div>
-        <div class="issue-text">6/8 19:00 네이버 LIVE</div>
-        <div class="issue-price">판매가 378,000원 · 세일가 359,100원</div>
-      </div>
-    </div>
-    <div class="issue-item">
-      <div class="issue-date">2026-06-04</div>
-      <div class="issue-main">
-        <div class="issue-tags">
-          <span class="tag-item">젖병 소독기 UV</span>
-          <span style="color:var(--text-muted);">·</span>
-          <span class="tag-brand">스펙트라</span>
-        </div>
-        <div class="issue-text">스펙트라 전주 대비 판매가 인하</div>
-        <div class="issue-price">판매가 209,700원 · 세일가 209,700원</div>
-      </div>
-    </div>
-    <div class="issue-item">
-      <div class="issue-date">2026-06-04</div>
-      <div class="issue-main">
-        <div class="issue-tags">
-          <span class="tag-item">젖병 소독기 스팀</span>
-          <span style="color:var(--text-muted);">·</span>
-          <span class="tag-brand">베이비브레짜</span>
-        </div>
-        <div class="issue-text">네이버 6월 슈퍼적립</div>
-        <div class="issue-price">판매가 149,000원 · 세일가 149,000원</div>
-      </div>
-    </div>
-    <div class="issue-item">
-      <div class="issue-date">2026-06-04</div>
-      <div class="issue-main">
-        <div class="issue-tags">
-          <span class="tag-item">젖병 소독기 스팀</span>
-          <span style="color:var(--text-muted);">·</span>
-          <span class="tag-brand">에디슨</span>
-        </div>
-        <div class="issue-text">에디슨 전주 대비 판매가 인상</div>
-        <div class="issue-price">판매가 116,100원 · 세일가 114,100원</div>
-      </div>
-    </div>
-    <div class="issue-item">
-      <div class="issue-date">2026-06-04</div>
-      <div class="issue-main">
-        <div class="issue-tags">
-          <span class="tag-item">젖병 소독기 스팀</span>
-          <span style="color:var(--text-muted);">·</span>
-          <span class="tag-brand">필립스 아벤트</span>
-        </div>
-        <div class="issue-text">네이버 6월 슈퍼적립</div>
-        <div class="issue-price">판매가 153,000원 · 세일가 141,550원</div>
-      </div>
-    </div>
-    <div class="issue-item">
-      <div class="issue-date">2026-06-04</div>
-      <div class="issue-main">
-        <div class="issue-tags">
-          <span class="tag-item">젖병 세척기</span>
-          <span style="color:var(--text-muted);">·</span>
-          <span class="tag-brand">오르테</span>
-        </div>
-        <div class="issue-text">네이버 6월 슈퍼적립</div>
-        <div class="issue-price">판매가 349,000원 · 세일가 329,000원</div>
-      </div>
-    </div>
-    <div class="issue-item">
-      <div class="issue-date">2026-06-04</div>
-      <div class="issue-main">
-        <div class="issue-tags">
-          <span class="tag-item">젖병 세척기</span>
-          <span style="color:var(--text-muted);">·</span>
-          <span class="tag-brand">캄토</span>
-        </div>
-        <div class="issue-text">품절</div>
-        <div class="issue-price">판매가 499,000원 · 세일가 499,000원</div>
-      </div>
-    </div>
-    <div class="issue-item">
-      <div class="issue-date">2026-06-04</div>
-      <div class="issue-main">
-        <div class="issue-tags">
-          <span class="tag-item">젖병 세척기</span>
-          <span style="color:var(--text-muted);">·</span>
-          <span class="tag-brand">육아원칙</span>
-        </div>
-        <div class="issue-text">육아원칙 전주 대비 판매가 인상</div>
-        <div class="issue-price">판매가 379,000원 · 세일가 379,000원</div>
-      </div>
-    </div></div>
+  <div id="viewIssue" style="display:none;">
+    <div class="issue-panel" id="issuePanel"></div>
   </div>
 </div>
 
@@ -1579,4 +928,4 @@ window.addEventListener('load',()=>{ loadData(); });
 </script>
 
 
-</body></html>
+<script id="brz-jsonp" src="./babybrezza_competitor_dashboard_files/exec"></script></body></html>
