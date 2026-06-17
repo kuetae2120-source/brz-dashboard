@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0069)file:///C:/Users/IVG/Downloads/babybrezza_competitor_dashboard_4.html -->
+<!-- saved from url=(0067)file:///C:/Users/IVG/Downloads/babybrezza_competitor_dashboard.html -->
 <html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -189,14 +189,14 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
   <div class="week-chips" id="weekChips"><button class="wc " onclick="setWeek(&#39;2026-06-04&#39;)">2026-06-04</button><button class="wc " onclick="setWeek(&#39;2026-06-11&#39;)">2026-06-11</button></div>
   <div class="divider" style="margin-left:auto;"></div>
   <div class="view-toggle">
-    <button class="vt-btn" id="btnCard" onclick="setView(&#39;card&#39;)">🗂 카드</button>
+    <button class="vt-btn on" id="btnCard" onclick="setView(&#39;card&#39;)">🗂 카드</button>
     <button class="vt-btn" id="btnTable" onclick="setView(&#39;table&#39;)">📋 테이블</button>
     <button class="vt-btn" id="btnIssue" onclick="setView(&#39;issue&#39;)">⚠️ 이슈</button>
-    <button class="vt-btn on" id="btnChart" onclick="setView(&#39;chart&#39;)">📊 차트</button>
+    <button class="vt-btn" id="btnChart" onclick="setView(&#39;chart&#39;)">📊 차트</button>
   </div>
 </div>
 
-<div id="weeklyPanel" style="display: none; background: rgb(245, 246, 251); padding: 20px 20px 0px; border-bottom: 1px solid rgb(228, 230, 239);"><div style="margin-bottom:32px">
+<div id="weeklyPanel" style="display: block; background: rgb(245, 246, 251); padding: 20px 20px 0px; border-bottom: 1px solid rgb(228, 230, 239);"><div style="margin-bottom:32px">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
         <div style="width:4px;height:18px;background:#5B53F0;border-radius:2px"></div>
         <span style="font-size:14px;font-weight:700;color:#1a1a2e">06월 1주차</span>
@@ -1831,7 +1831,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-seri
       </div>
     </div></div>
   </div>
-  <div id="viewChart" style="display: block;"><div style="padding:20px;background:#f5f6fb">
+  <div id="viewChart" style="display: none;"><div style="padding:20px;background:#f5f6fb">
     <div style="background:#fff;border:1px solid #e4e6ef;border-radius:12px;padding:16px;margin-bottom:14px">
       <div style="font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px">브랜드별 평균 세일가</div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
