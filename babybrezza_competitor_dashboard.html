@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0070)file:///C:/Users/IVG/Downloads/babybrezza_competitor_dashboard_23.html -->
+<!-- saved from url=(0069)file:///C:/Users/IVG/Downloads/babybrezza_competitor_dashboard_2.html -->
 <html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=1400">
@@ -160,7 +160,7 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
     <div class="header-title">베이비브레짜 경쟁사 동향 대시보드</div>
   </div>
   <div class="header-right">
-    <span class="sync-badge" id="syncBadge">최신 2026-06-18</span>
+    <span class="sync-badge" id="syncBadge">최신 2026-07-02</span>
     <button class="refresh-btn" id="refreshBtn" onclick="loadData()" style="display: inline-block;">↻ 새로고침</button>
   </div>
 </div>
@@ -171,7 +171,7 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
 
 </div>
 <div style="padding:0 28px;background:#fff;border-bottom:1px solid var(--border);">
-  <div class="status-row" id="statusRow" style="padding-bottom:8px;"><span class="chip chip-ok">✅ 256건 로드</span><span class="chip chip-info">📅 최신: 2026-06-18</span></div>
+  <div class="status-row" id="statusRow" style="padding-bottom:8px;"><span class="chip chip-ok">✅ 344건 로드</span><span class="chip chip-info">📅 최신: 2026-07-02</span></div>
 </div>
 
 <!-- TOP FILTER -->
@@ -182,9 +182,9 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
   <select class="tf-select" id="brandFilter" onchange="applyFilters()"><option value="">전체 브랜드</option><option>꿈비</option><option>나리몽</option><option>리하스</option><option>버들</option><option>베이비브레짜</option><option>벤브와</option><option>브라비</option><option>소베맘</option><option>스펙트라</option><option>에디슨</option><option>오르테</option><option>유팡</option><option>육아원칙</option><option>캄토</option><option>폴레드</option><option>필립스 아벤트</option><option>해님</option></select>
   <div class="divider"></div>
   <span class="tf-label">월</span>
-  <select class="tf-select" id="monthFilter" onchange="setMonth(this.value)"><option value="2026-04">2026-04</option><option value="2026-05">2026-05</option><option value="2026-06">2026-06</option></select>
+  <select class="tf-select" id="monthFilter" onchange="setMonth(this.value)"><option value="2026-04">2026-04</option><option value="2026-05">2026-05</option><option value="2026-06">2026-06</option><option value="2026-07">2026-07</option></select>
   <span class="tf-label">주차</span>
-  <div class="week-chips" id="weekChips"><button class="wc " onclick="setWeek(&#39;2026-06-04&#39;)">2026-06-04</button><button class="wc " onclick="setWeek(&#39;2026-06-11&#39;)">2026-06-11</button><button class="wc " onclick="setWeek(&#39;2026-06-18&#39;)">2026-06-18</button></div>
+  <div class="week-chips" id="weekChips"><button class="wc " onclick="setWeek(&#39;2026-07-02&#39;)">2026-07-02</button></div>
   <div class="divider" style="margin-left:auto;"></div>
   <div class="view-toggle">
     <button class="vt-btn on" id="btnCard" onclick="setView(&#39;card&#39;)">🗂 카드</button>
@@ -197,596 +197,14 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
 <div id="weeklyPanel" style="display: block; background: rgb(245, 246, 251); padding: 20px 20px 0px; border-bottom: 1px solid rgb(228, 230, 239);"><div style="margin-bottom:32px">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
         <div style="width:4px;height:18px;background:#5B53F0;border-radius:2px"></div>
-        <span style="font-size:14px;font-weight:700;color:#1a1a2e">06월 1주차</span>
-        <span style="font-size:11px;color:#888;background:#f0f0f0;padding:2px 8px;border-radius:20px">06/04</span>
+        <span style="font-size:14px;font-weight:700;color:#1a1a2e">07월 1주차</span>
+        <span style="font-size:11px;color:#888;background:#f0f0f0;padding:2px 8px;border-radius:20px">07/02</span>
       </div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px">
         <div class="sc"><div class="sc-icon purple">🏷️</div><div><div class="sc-val purple">16개</div><div class="sc-label">모니터링 브랜드</div></div></div>
-        <div class="sc"><div class="sc-icon green">📉</div><div><div class="sc-val green">15건</div><div class="sc-label">브레짜보다 저렴</div></div></div>
-        <div class="sc"><div class="sc-icon red">📈</div><div><div class="sc-val red">2건</div><div class="sc-label">브레짜보다 비쌈</div></div></div>
-        <div class="sc"><div class="sc-icon orange">⚠️</div><div><div class="sc-val orange">8건</div><div class="sc-label">이번 주 이슈</div></div></div>
-      </div>
-      <div class="cards-grid"><div class="item-card">
-        <div class="card-header">
-          <div class="card-item-name">분유제조기</div>
-          <div class="card-meta"><span class="brand-count">5개 브랜드</span></div>
-        </div>
-        <div style="padding:6px 0 2px">
-          <div class="col-header" style="display:flex;padding:4px 16px 6px;gap:10px">
-            <span style="font-size:10px;color:var(--text-muted);width:68px;flex-shrink:0;">브랜드</span>
-            <span style="font-size:10px;color:var(--text-muted);flex:1">판매가/세일가</span>
-            <span style="font-size:10px;color:var(--text-muted);width:72px;text-align:center">브레짜<br>가격대비</span>
-            <span style="font-size:10px;color:var(--text-muted);width:60px;text-align:center">전주대비<br>증감</span>
-            <span style="font-size:10px;color:var(--text-muted);width:72px">최저가채널</span>
-          </div>
-          <div class="brand-row" style="">
-          <div class="brand-name" title="리하스">리하스</div>
-          <div class="price-col">
-            <div class="price-main">229,000원</div>
-            <div class="price-sale">세일 224,400원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 84,600</span></div>
-          <div class="change-col"><span class="ch-down">▼120,000</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="버들">버들</div>
-          <div class="price-col">
-            <div class="price-main">538,000원</div>
-            <div class="price-sale">세일 537,000원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-pricier">▲ 228,000</span></div>
-          <div class="change-col"><span class="ch-up">▲139,000</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="background:rgba(91,83,240,.05);">
-          <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
-          <div class="price-col">
-            <div class="price-main">309,000원</div>
-            <div class="price-sale">세일 293,550원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="브라비">브라비</div>
-          <div class="price-col">
-            <div class="price-main">309,000원</div>
-            <div class="price-sale">세일 299,000원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 10,000</span></div>
-          <div class="change-col"><span class="ch-down">▼39,000</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="에디슨">에디슨</div>
-          <div class="price-col">
-            <div class="price-main">223,500원</div>
-            <div class="price-sale">세일 259,260원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 49,740</span></div>
-          <div class="change-col"><span class="ch-down">▼275,500</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div>
-        </div>
-        
-        
-      </div><div class="item-card">
-        <div class="card-header">
-          <div class="card-item-name">젖병 소독기 UV</div>
-          <div class="card-meta"><span class="brand-count">6개 브랜드</span><span class="issue-count">⚠️ 2</span></div>
-        </div>
-        <div style="padding:6px 0 2px">
-          <div class="col-header" style="display:flex;padding:4px 16px 6px;gap:10px">
-            <span style="font-size:10px;color:var(--text-muted);width:68px;flex-shrink:0;">브랜드</span>
-            <span style="font-size:10px;color:var(--text-muted);flex:1">판매가/세일가</span>
-            <span style="font-size:10px;color:var(--text-muted);width:72px;text-align:center">브레짜<br>가격대비</span>
-            <span style="font-size:10px;color:var(--text-muted);width:60px;text-align:center">전주대비<br>증감</span>
-            <span style="font-size:10px;color:var(--text-muted);width:72px">최저가채널</span>
-          </div>
-          <div class="brand-row" style="">
-          <div class="brand-name" title="나리몽">나리몽</div>
-          <div class="price-col">
-            <div class="price-main">149,000원</div>
-            <div class="price-sale">세일 148,000원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 251,000</span></div>
-          <div class="change-col"><span class="ch-down">▼250,000</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="background:rgba(91,83,240,.05);">
-          <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
-          <div class="price-col">
-            <div class="price-main">399,000원</div>
-            <div class="price-sale">세일 379,050원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="스펙트라">스펙트라</div>
-          <div class="price-col">
-            <div class="price-main">209,700원</div>
-            
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 189,300</span></div>
-          <div class="change-col"><span class="ch-up">▲209,700</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="유팡">유팡</div>
-          <div class="price-col">
-            <div class="price-main">370,000원</div>
-            <div class="price-sale">세일 348,650원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 50,350</span></div>
-          <div class="change-col"><span class="ch-up">▲370,000</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="폴레드">폴레드</div>
-          <div class="price-col">
-            <div class="price-main">378,000원</div>
-            <div class="price-sale">세일 359,100원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 39,900</span></div>
-          <div class="change-col"><span class="ch-up">▲378,000</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="해님">해님</div>
-          <div class="price-col">
-            <div class="price-main">239,000원</div>
-            <div class="price-sale">세일 226,100원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 172,900</span></div>
-          <div class="change-col"><span class="ch-up">▲239,000</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div>
-        </div>
-        
-        <div class="issue-section">
-          <div class="issue-section-title">⚠️ 주요 이슈</div>
-          <div class="issue-line"><strong>스펙트라</strong> 스펙트라 전주 대비 판매가 인하</div><div class="issue-line"><strong>폴레드</strong> 6/8 19:00 네이버 LIVE</div>
-        </div>
-        
-      </div><div class="item-card">
-        <div class="card-header">
-          <div class="card-item-name">젖병 소독기 스팀</div>
-          <div class="card-meta"><span class="brand-count">4개 브랜드</span><span class="issue-count">⚠️ 3</span></div>
-        </div>
-        <div style="padding:6px 0 2px">
-          <div class="col-header" style="display:flex;padding:4px 16px 6px;gap:10px">
-            <span style="font-size:10px;color:var(--text-muted);width:68px;flex-shrink:0;">브랜드</span>
-            <span style="font-size:10px;color:var(--text-muted);flex:1">판매가/세일가</span>
-            <span style="font-size:10px;color:var(--text-muted);width:72px;text-align:center">브레짜<br>가격대비</span>
-            <span style="font-size:10px;color:var(--text-muted);width:60px;text-align:center">전주대비<br>증감</span>
-            <span style="font-size:10px;color:var(--text-muted);width:72px">최저가채널</span>
-          </div>
-          <div class="brand-row" style="background:rgba(91,83,240,.05);">
-          <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
-          <div class="price-col">
-            <div class="price-main">149,000원</div>
-            
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="벤브와">벤브와</div>
-          <div class="price-col">
-            <div class="price-main">139,000원</div>
-            
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 10,000</span></div>
-          <div class="change-col"><span class="ch-up">▲139,000</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="에디슨">에디슨</div>
-          <div class="price-col">
-            <div class="price-main">116,100원</div>
-            <div class="price-sale">세일 114,100원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 34,900</span></div>
-          <div class="change-col"><span class="ch-up">▲116,100</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="필립스 아벤트">필립스 아벤트</div>
-          <div class="price-col">
-            <div class="price-main">153,000원</div>
-            <div class="price-sale">세일 141,550원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 7,450</span></div>
-          <div class="change-col"><span class="ch-up">▲153,000</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div>
-        </div>
-        
-        <div class="issue-section">
-          <div class="issue-section-title">⚠️ 주요 이슈</div>
-          <div class="issue-line"><strong>베이비브레짜</strong> 네이버 6월 슈퍼적립</div><div class="issue-line"><strong>에디슨</strong> 에디슨 전주 대비 판매가 인상</div><div class="issue-line"><strong>필립스 아벤트</strong> 네이버 6월 슈퍼적립</div>
-        </div>
-        
-      </div><div class="item-card">
-        <div class="card-header">
-          <div class="card-item-name">젖병 세척기</div>
-          <div class="card-meta"><span class="brand-count">7개 브랜드</span><span class="issue-count">⚠️ 3</span></div>
-        </div>
-        <div style="padding:6px 0 2px">
-          <div class="col-header" style="display:flex;padding:4px 16px 6px;gap:10px">
-            <span style="font-size:10px;color:var(--text-muted);width:68px;flex-shrink:0;">브랜드</span>
-            <span style="font-size:10px;color:var(--text-muted);flex:1">판매가/세일가</span>
-            <span style="font-size:10px;color:var(--text-muted);width:72px;text-align:center">브레짜<br>가격대비</span>
-            <span style="font-size:10px;color:var(--text-muted);width:60px;text-align:center">전주대비<br>증감</span>
-            <span style="font-size:10px;color:var(--text-muted);width:72px">최저가채널</span>
-          </div>
-          <div class="brand-row" style="">
-          <div class="brand-name" title="꿈비">꿈비</div>
-          <div class="price-col">
-            <div class="price-main">399,000원</div>
-            <div class="price-sale">세일 312,010원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 86,990</span></div>
-          <div class="change-col"><span class="ch-up">▲399,000</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="버들">버들</div>
-          <div class="price-col">
-            <div class="price-main">348,000원</div>
-            <div class="price-sale">세일 347,000원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 52,000</span></div>
-          <div class="change-col"><span class="ch-up">▲348,000</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="background:rgba(91,83,240,.05);">
-          <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
-          <div class="price-col">
-            <div class="price-main">399,000원</div>
-            <div class="price-sale">세일 379,050원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="소베맘">소베맘</div>
-          <div class="price-col">
-            <div class="price-main">399,000원</div>
-            
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
-          <div class="change-col"><span class="ch-up">▲399,000</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="오르테">오르테</div>
-          <div class="price-col">
-            <div class="price-main">349,000원</div>
-            <div class="price-sale">세일 329,000원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 70,000</span></div>
-          <div class="change-col"><span class="ch-up">▲349,000</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="육아원칙">육아원칙</div>
-          <div class="price-col">
-            <div class="price-main">379,000원</div>
-            
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 20,000</span></div>
-          <div class="change-col"><span class="ch-up">▲30,000</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="캄토">캄토</div>
-          <div class="price-col">
-            <div class="price-main">499,000원</div>
-            
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-pricier">▲ 100,000</span></div>
-          <div class="change-col"><span class="ch-up">▲100,000</span></div>
-          <div style="width:72px;flex-shrink:0"></div>
-        </div>
-        </div>
-        
-        <div class="issue-section">
-          <div class="issue-section-title">⚠️ 주요 이슈</div>
-          <div class="issue-line"><strong>오르테</strong> 네이버 6월 슈퍼적립</div><div class="issue-line"><strong>육아원칙</strong> 육아원칙 전주 대비 판매가 인상</div><div class="issue-line"><strong>캄토</strong> 품절</div>
-        </div>
-        
-      </div></div>
-    </div><div style="margin-bottom:32px">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-        <div style="width:4px;height:18px;background:#5B53F0;border-radius:2px"></div>
-        <span style="font-size:14px;font-weight:700;color:#1a1a2e">06월 2주차</span>
-        <span style="font-size:11px;color:#888;background:#f0f0f0;padding:2px 8px;border-radius:20px">06/11</span>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px">
-        <div class="sc"><div class="sc-icon purple">🏷️</div><div><div class="sc-val purple">16개</div><div class="sc-label">모니터링 브랜드</div></div></div>
-        <div class="sc"><div class="sc-icon green">📉</div><div><div class="sc-val green">14건</div><div class="sc-label">브레짜보다 저렴</div></div></div>
-        <div class="sc"><div class="sc-icon red">📈</div><div><div class="sc-val red">4건</div><div class="sc-label">브레짜보다 비쌈</div></div></div>
+        <div class="sc"><div class="sc-icon green">📉</div><div><div class="sc-val green">13건</div><div class="sc-label">브레짜보다 저렴</div></div></div>
+        <div class="sc"><div class="sc-icon red">📈</div><div><div class="sc-val red">5건</div><div class="sc-label">브레짜보다 비쌈</div></div></div>
         <div class="sc"><div class="sc-icon orange">⚠️</div><div><div class="sc-val orange">9건</div><div class="sc-label">이번 주 이슈</div></div></div>
-      </div>
-      <div class="cards-grid"><div class="item-card">
-        <div class="card-header">
-          <div class="card-item-name">분유제조기</div>
-          <div class="card-meta"><span class="brand-count">5개 브랜드</span></div>
-        </div>
-        <div style="padding:6px 0 2px">
-          <div class="col-header" style="display:flex;padding:4px 16px 6px;gap:10px">
-            <span style="font-size:10px;color:var(--text-muted);width:68px;flex-shrink:0;">브랜드</span>
-            <span style="font-size:10px;color:var(--text-muted);flex:1">판매가/세일가</span>
-            <span style="font-size:10px;color:var(--text-muted);width:72px;text-align:center">브레짜<br>가격대비</span>
-            <span style="font-size:10px;color:var(--text-muted);width:60px;text-align:center">전주대비<br>증감</span>
-            <span style="font-size:10px;color:var(--text-muted);width:72px">최저가채널</span>
-          </div>
-          <div class="brand-row" style="">
-          <div class="brand-name" title="리하스">리하스</div>
-          <div class="price-col">
-            <div class="price-main">229,000원</div>
-            
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 28,000</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="버들">버들</div>
-          <div class="price-col">
-            <div class="price-main">538,000원</div>
-            <div class="price-sale">세일 537,000원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-pricier">▲ 238,000</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="background:rgba(91,83,240,.05);">
-          <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
-          <div class="price-col">
-            <div class="price-main">309,000원</div>
-            <div class="price-sale">세일 293,550원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="브라비">브라비</div>
-          <div class="price-col">
-            <div class="price-main">309,000원</div>
-            <div class="price-sale">세일 299,000원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-pricier">▲ 5,450</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="에디슨">에디슨</div>
-          <div class="price-col">
-            <div class="price-main">259,000원</div>
-            <div class="price-sale">세일 257,000원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 280,000</span></div>
-          <div class="change-col"><span class="ch-up">▲35,500</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div>
-        </div>
-        
-        
-      </div><div class="item-card">
-        <div class="card-header">
-          <div class="card-item-name">젖병 소독기 UV</div>
-          <div class="card-meta"><span class="brand-count">6개 브랜드</span><span class="issue-count">⚠️ 3</span></div>
-        </div>
-        <div style="padding:6px 0 2px">
-          <div class="col-header" style="display:flex;padding:4px 16px 6px;gap:10px">
-            <span style="font-size:10px;color:var(--text-muted);width:68px;flex-shrink:0;">브랜드</span>
-            <span style="font-size:10px;color:var(--text-muted);flex:1">판매가/세일가</span>
-            <span style="font-size:10px;color:var(--text-muted);width:72px;text-align:center">브레짜<br>가격대비</span>
-            <span style="font-size:10px;color:var(--text-muted);width:60px;text-align:center">전주대비<br>증감</span>
-            <span style="font-size:10px;color:var(--text-muted);width:72px">최저가채널</span>
-          </div>
-          <div class="brand-row" style="">
-          <div class="brand-name" title="나리몽">나리몽</div>
-          <div class="price-col">
-            <div class="price-main">149,000원</div>
-            <div class="price-sale">세일 148,000원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 231,050</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="background:rgba(91,83,240,.05);">
-          <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
-          <div class="price-col">
-            <div class="price-main">399,000원</div>
-            <div class="price-sale">세일 379,050원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="스펙트라">스펙트라</div>
-          <div class="price-col">
-            <div class="price-main">209,700원</div>
-            
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 169,350</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="유팡">유팡</div>
-          <div class="price-col">
-            <div class="price-main">369,000원</div>
-            <div class="price-sale">세일 347,700원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 31,350</span></div>
-          <div class="change-col"><span class="ch-down">▼1,000</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="폴레드">폴레드</div>
-          <div class="price-col">
-            <div class="price-main">378,000원</div>
-            <div class="price-sale">세일 359,100원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 19,950</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="해님">해님</div>
-          <div class="price-col">
-            <div class="price-main">239,000원</div>
-            <div class="price-sale">세일 226,100원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 152,950</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div>
-        </div>
-        
-        <div class="issue-section">
-          <div class="issue-section-title">⚠️ 주요 이슈</div>
-          <div class="issue-line"><strong>유팡</strong> 6/11 11시 네이버 맘편한육아 LIVE</div><div class="issue-line"><strong>폴레드</strong> 6/12 11시 네이버 LIVE</div><div class="issue-line"><strong>해님</strong> 6/9 11시 네이버 LIVE 진행</div>
-        </div>
-        
-      </div><div class="item-card">
-        <div class="card-header">
-          <div class="card-item-name">젖병 소독기 스팀</div>
-          <div class="card-meta"><span class="brand-count">4개 브랜드</span><span class="issue-count">⚠️ 3</span></div>
-        </div>
-        <div style="padding:6px 0 2px">
-          <div class="col-header" style="display:flex;padding:4px 16px 6px;gap:10px">
-            <span style="font-size:10px;color:var(--text-muted);width:68px;flex-shrink:0;">브랜드</span>
-            <span style="font-size:10px;color:var(--text-muted);flex:1">판매가/세일가</span>
-            <span style="font-size:10px;color:var(--text-muted);width:72px;text-align:center">브레짜<br>가격대비</span>
-            <span style="font-size:10px;color:var(--text-muted);width:60px;text-align:center">전주대비<br>증감</span>
-            <span style="font-size:10px;color:var(--text-muted);width:72px">최저가채널</span>
-          </div>
-          <div class="brand-row" style="background:rgba(91,83,240,.05);">
-          <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
-          <div class="price-col">
-            <div class="price-main">149,000원</div>
-            
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="벤브와">벤브와</div>
-          <div class="price-col">
-            <div class="price-main">139,000원</div>
-            
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 10,000</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="에디슨">에디슨</div>
-          <div class="price-col">
-            <div class="price-main">129,000원</div>
-            <div class="price-sale">세일 114,240원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 34,760</span></div>
-          <div class="change-col"><span class="ch-up">▲12,900</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">쿠팡</span></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="필립스 아벤트">필립스 아벤트</div>
-          <div class="price-col">
-            <div class="price-main">153,000원</div>
-            <div class="price-sale">세일 141,550원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 7,450</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">쿠팡</span></div>
-        </div>
-        </div>
-        
-        <div class="issue-section">
-          <div class="issue-section-title">⚠️ 주요 이슈</div>
-          <div class="issue-line"><strong>베이비브레짜</strong> 네이버 6월 슈퍼적립</div><div class="issue-line"><strong>에디슨</strong> 에디슨 전주 대비 판매가 인상</div><div class="issue-line"><strong>필립스 아벤트</strong> 네이버 6월 슈퍼적립</div>
-        </div>
-        
-      </div><div class="item-card">
-        <div class="card-header">
-          <div class="card-item-name">젖병 세척기</div>
-          <div class="card-meta"><span class="brand-count">7개 브랜드</span><span class="issue-count">⚠️ 3</span></div>
-        </div>
-        <div style="padding:6px 0 2px">
-          <div class="col-header" style="display:flex;padding:4px 16px 6px;gap:10px">
-            <span style="font-size:10px;color:var(--text-muted);width:68px;flex-shrink:0;">브랜드</span>
-            <span style="font-size:10px;color:var(--text-muted);flex:1">판매가/세일가</span>
-            <span style="font-size:10px;color:var(--text-muted);width:72px;text-align:center">브레짜<br>가격대비</span>
-            <span style="font-size:10px;color:var(--text-muted);width:60px;text-align:center">전주대비<br>증감</span>
-            <span style="font-size:10px;color:var(--text-muted);width:72px">최저가채널</span>
-          </div>
-          <div class="brand-row" style="">
-          <div class="brand-name" title="꿈비">꿈비</div>
-          <div class="price-col">
-            <div class="price-main">399,000원</div>
-            <div class="price-sale">세일 312,010원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 67,040</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="버들">버들</div>
-          <div class="price-col">
-            <div class="price-main">348,000원</div>
-            <div class="price-sale">세일 347,000원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 32,050</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="background:rgba(91,83,240,.05);">
-          <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
-          <div class="price-col">
-            <div class="price-main">399,000원</div>
-            <div class="price-sale">세일 379,050원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="소베맘">소베맘</div>
-          <div class="price-col">
-            <div class="price-main">399,000원</div>
-            
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-pricier">▲ 19,950</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="오르테">오르테</div>
-          <div class="price-col">
-            <div class="price-main">349,000원</div>
-            <div class="price-sale">세일 329,000원</div>
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 50,050</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="육아원칙">육아원칙</div>
-          <div class="price-col">
-            <div class="price-main">379,000원</div>
-            
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 50</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div><div class="brand-row" style="">
-          <div class="brand-name" title="캄토">캄토</div>
-          <div class="price-col">
-            <div class="price-main">499,000원</div>
-            
-            </div>
-          <div class="vs-col"><span class="vs-badge vs-pricier">▲ 119,950</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
-        </div>
-        </div>
-        
-        <div class="issue-section">
-          <div class="issue-section-title">⚠️ 주요 이슈</div>
-          <div class="issue-line"><strong>꿈비</strong> 6/10 15시 네이버 LIVE 진행</div><div class="issue-line"><strong>육아원칙</strong> 6/8 10시 네이버 LIVE 진행</div><div class="issue-line"><strong>캄토</strong> 품절</div>
-        </div>
-        
-      </div></div>
-    </div><div style="margin-bottom:32px">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-        <div style="width:4px;height:18px;background:#5B53F0;border-radius:2px"></div>
-        <span style="font-size:14px;font-weight:700;color:#1a1a2e">06월 3주차</span>
-        <span style="font-size:11px;color:#888;background:#f0f0f0;padding:2px 8px;border-radius:20px">06/18</span>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px">
-        <div class="sc"><div class="sc-icon purple">🏷️</div><div><div class="sc-val purple">16개</div><div class="sc-label">모니터링 브랜드</div></div></div>
-        <div class="sc"><div class="sc-icon green">📉</div><div><div class="sc-val green">12건</div><div class="sc-label">브레짜보다 저렴</div></div></div>
-        <div class="sc"><div class="sc-icon red">📈</div><div><div class="sc-val red">6건</div><div class="sc-label">브레짜보다 비쌈</div></div></div>
-        <div class="sc"><div class="sc-icon orange">⚠️</div><div><div class="sc-val orange">6건</div><div class="sc-label">이번 주 이슈</div></div></div>
       </div>
       <div class="cards-grid"><div class="item-card">
         <div class="card-header">
@@ -813,10 +231,10 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
         </div><div class="brand-row" style="">
           <div class="brand-name" title="버들">버들</div>
           <div class="price-col">
-            <div class="price-main">538,000원</div>
-            <div class="price-sale">세일 537,000원</div>
+            <div class="price-main">481,000원</div>
+            <div class="price-sale">세일 455,950원</div>
             </div>
-          <div class="vs-col"><span class="vs-badge vs-pricier">▲ 243,450</span></div>
+          <div class="vs-col"><span class="vs-badge vs-pricier">▲ 162,400</span></div>
           <div class="change-col"><span class="ch-same">—</span></div>
           <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
         </div><div class="brand-row" style="background:rgba(91,83,240,.05);">
@@ -840,19 +258,18 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
         </div><div class="brand-row" style="">
           <div class="brand-name" title="에디슨">에디슨</div>
           <div class="price-col">
-            <div class="price-main">230,000원</div>
-            <div class="price-sale">세일 225,000원</div>
+            <div class="price-main">259,000원</div>
+            <div class="price-sale">세일 254,000원</div>
             </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 68,550</span></div>
-          <div class="change-col"><span class="ch-down">▼29,000</span></div>
+          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 39,550</span></div>
+          <div class="change-col"><span class="ch-up">▲29,000</span></div>
           <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
         </div>
         </div>
         
         <div class="issue-section">
           <div class="issue-section-title">⚠️ 주요 이슈</div>
-          <div class="issue-line"><strong>에디슨</strong> 에디슨 전주 대비 판매가 인하
-6/24(수) 11시 네이버 LIVE</div>
+          <div class="issue-line"><strong>버들</strong> 버들 전주 대비 판매가 대폭 인상</div>
         </div>
         
         <div style="border-top:1px solid var(--border);padding:8px 12px;background:rgba(91,83,240,.03);">
@@ -860,15 +277,15 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
           <div style="display:flex;flex-wrap:wrap;gap:5px;">
             <div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:2px 7px;">
               <span style="font-size:11px;font-weight:700;color:#5B53F0;">베이비브레짜</span>
-              <span style="font-size:11px;color:#333;">115건</span>
-              <span style="font-size:10px;color:#888;">/ 3672만원</span>
+              <span style="font-size:11px;color:#333;">96건</span>
+              <span style="font-size:10px;color:#888;">/ 3060만원</span>
             </div>
           </div>
         </div>
       </div><div class="item-card">
         <div class="card-header">
           <div class="card-item-name">젖병 소독기 UV</div>
-          <div class="card-meta"><span class="brand-count">6개 브랜드</span><span class="issue-count">⚠️ 2</span></div>
+          <div class="card-meta"><span class="brand-count">6개 브랜드</span><span class="issue-count">⚠️ 5</span></div>
         </div>
         <div style="padding:6px 0 2px">
           <div class="col-header" style="display:flex;padding:4px 16px 6px;gap:10px">
@@ -881,17 +298,17 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
           <div class="brand-row" style="">
           <div class="brand-name" title="나리몽">나리몽</div>
           <div class="price-col">
-            <div class="price-main">149,000원</div>
-            <div class="price-sale">세일 148,000원</div>
+            <div class="price-main">139,000원</div>
+            <div class="price-sale">세일 138,000원</div>
             </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 231,050</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
+          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 229,670</span></div>
+          <div class="change-col"><span class="ch-down">▼10,000</span></div>
           <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
         </div><div class="brand-row" style="background:rgba(91,83,240,.05);">
           <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
           <div class="price-col">
             <div class="price-main">399,000원</div>
-            <div class="price-sale">세일 379,050원</div>
+            <div class="price-sale">세일 367,670원</div>
             </div>
           <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
           <div class="change-col"><span class="ch-same">—</span></div>
@@ -899,20 +316,20 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
         </div><div class="brand-row" style="">
           <div class="brand-name" title="스펙트라">스펙트라</div>
           <div class="price-col">
-            <div class="price-main">233,000원</div>
-            <div class="price-sale">세일 221,350원</div>
+            <div class="price-main">209,700원</div>
+            
             </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 157,700</span></div>
-          <div class="change-col"><span class="ch-up">▲23,300</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">CJ온스타일</span></div>
+          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 157,970</span></div>
+          <div class="change-col"><span class="ch-down">▼23,300</span></div>
+          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
         </div><div class="brand-row" style="">
           <div class="brand-name" title="유팡">유팡</div>
           <div class="price-col">
-            <div class="price-main">385,000원</div>
-            <div class="price-sale">세일 345,750원</div>
+            <div class="price-main">379,000원</div>
+            <div class="price-sale">세일 342,640원</div>
             </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 33,300</span></div>
-          <div class="change-col"><span class="ch-up">▲16,000</span></div>
+          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 25,030</span></div>
+          <div class="change-col"><span class="ch-down">▼6,000</span></div>
           <div style="width:72px;flex-shrink:0"><span class="ch-tag">쿠팡</span></div>
         </div><div class="brand-row" style="">
           <div class="brand-name" title="폴레드">폴레드</div>
@@ -920,8 +337,8 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
             <div class="price-main">378,000원</div>
             <div class="price-sale">세일 344,960원</div>
             </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 34,090</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
+          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 22,710</span></div>
+          <div class="change-col"><span class="ch-up">▲15,000</span></div>
           <div style="width:72px;flex-shrink:0"><span class="ch-tag">29CM</span></div>
         </div><div class="brand-row" style="">
           <div class="brand-name" title="해님">해님</div>
@@ -929,7 +346,7 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
             <div class="price-main">239,000원</div>
             <div class="price-sale">세일 226,100원</div>
             </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 152,950</span></div>
+          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 141,570</span></div>
           <div class="change-col"><span class="ch-same">—</span></div>
           <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
         </div>
@@ -937,7 +354,7 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
         
         <div class="issue-section">
           <div class="issue-section-title">⚠️ 주요 이슈</div>
-          <div class="issue-line"><strong>폴레드</strong> 6/23(화) 11시 네이버 LIVE</div><div class="issue-line"><strong>해님</strong> 6/23(화) 11시 네이버 LIVE</div>
+          <div class="issue-line"><strong>나리몽</strong> 나리몽 전주 대비 판매가 인하</div><div class="issue-line"><strong>스펙트라</strong> 스펙트라 전주 대비 판매가 인하</div><div class="issue-line"><strong>유팡</strong> 유팡 전주 대비 판매가 인하</div><div class="issue-line"><strong>폴레드</strong> 폴레드 전주 대비 판매가 인상</div><div class="issue-line"><strong>해님</strong> 7/7(화) 11시 네이버 LIVE 진행</div>
         </div>
         
         <div style="border-top:1px solid var(--border);padding:8px 12px;background:rgba(91,83,240,.03);">
@@ -945,16 +362,12 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
           <div style="display:flex;flex-wrap:wrap;gap:5px;">
             <div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:2px 7px;">
               <span style="font-size:11px;font-weight:700;color:#5B53F0;">나리몽</span>
-              <span style="font-size:11px;color:#333;">5건</span>
-              <span style="font-size:10px;color:#888;">/ 75만원</span>
-            </div><div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:2px 7px;">
-              <span style="font-size:11px;font-weight:700;color:#5B53F0;">유팡</span>
-              <span style="font-size:11px;color:#333;">9건</span>
-              <span style="font-size:10px;color:#888;">/ 347만원</span>
+              <span style="font-size:11px;color:#333;">10건</span>
+              <span style="font-size:10px;color:#888;">/ 139만원</span>
             </div><div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:2px 7px;">
               <span style="font-size:11px;font-weight:700;color:#5B53F0;">폴레드</span>
-              <span style="font-size:11px;color:#333;">85건</span>
-              <span style="font-size:10px;color:#888;">/ 3213만원</span>
+              <span style="font-size:11px;color:#333;">76건</span>
+              <span style="font-size:10px;color:#888;">/ 2873만원</span>
             </div><div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:2px 7px;">
               <span style="font-size:11px;font-weight:700;color:#5B53F0;">해님</span>
               <span style="font-size:11px;color:#333;">10건</span>
@@ -965,7 +378,7 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
       </div><div class="item-card">
         <div class="card-header">
           <div class="card-item-name">젖병 소독기 스팀</div>
-          <div class="card-meta"><span class="brand-count">4개 브랜드</span><span class="issue-count">⚠️ 3</span></div>
+          <div class="card-meta"><span class="brand-count">4개 브랜드</span><span class="issue-count">⚠️ 2</span></div>
         </div>
         <div style="padding:6px 0 2px">
           <div class="col-header" style="display:flex;padding:4px 16px 6px;gap:10px">
@@ -979,45 +392,44 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
           <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
           <div class="price-col">
             <div class="price-main">149,000원</div>
-            <div class="price-sale">세일 137,500원</div>
+            <div class="price-sale">세일 139,000원</div>
             </div>
           <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
           <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">쿠팡</span></div>
+          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
         </div><div class="brand-row" style="">
           <div class="brand-name" title="벤브와">벤브와</div>
           <div class="price-col">
             <div class="price-main">139,000원</div>
             
             </div>
-          <div class="vs-col"><span class="vs-badge vs-pricier">▲ 1,500</span></div>
+          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 10,000</span></div>
           <div class="change-col"><span class="ch-same">—</span></div>
           <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
         </div><div class="brand-row" style="">
           <div class="brand-name" title="에디슨">에디슨</div>
           <div class="price-col">
-            <div class="price-main">99,000원</div>
+            <div class="price-main">129,000원</div>
             <div class="price-sale">세일 94,050원</div>
             </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 43,450</span></div>
-          <div class="change-col"><span class="ch-down">▼30,000</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
+          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 44,950</span></div>
+          <div class="change-col"><span class="ch-up">▲30,000</span></div>
+          <div style="width:72px;flex-shrink:0"><span class="ch-tag">쿠팡</span></div>
         </div><div class="brand-row" style="">
           <div class="brand-name" title="필립스 아벤트">필립스 아벤트</div>
           <div class="price-col">
-            <div class="price-main">153,000원</div>
-            <div class="price-sale">세일 141,550원</div>
+            <div class="price-main">149,000원</div>
+            <div class="price-sale">세일 141,000원</div>
             </div>
-          <div class="vs-col"><span class="vs-badge vs-pricier">▲ 4,050</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">쿠팡</span></div>
+          <div class="vs-col"><span class="vs-badge vs-pricier">▲ 2,000</span></div>
+          <div class="change-col"><span class="ch-down">▼4,000</span></div>
+          <div style="width:72px;flex-shrink:0"><span class="ch-tag">SSG닷컴</span></div>
         </div>
         </div>
         
         <div class="issue-section">
           <div class="issue-section-title">⚠️ 주요 이슈</div>
-          <div class="issue-line"><strong>베이비브레짜</strong> 네이버 6월 슈퍼적립</div><div class="issue-line"><strong>에디슨</strong> 에디슨 전주 대비 판매가 인하
-6/24(수) 11시 네이버 LIVE</div><div class="issue-line"><strong>필립스 아벤트</strong> 네이버 6월 슈퍼적립</div>
+          <div class="issue-line"><strong>에디슨</strong> 에디슨 전주 대비 판매가 인상</div><div class="issue-line"><strong>필립스 아벤트</strong> 필립스 아벤트 전주 대비 판매가 인하</div>
         </div>
         
         <div style="border-top:1px solid var(--border);padding:8px 12px;background:rgba(91,83,240,.03);">
@@ -1029,23 +441,23 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
               <span style="font-size:10px;color:#888;">/ 104만원</span>
             </div><div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:2px 7px;">
               <span style="font-size:11px;font-weight:700;color:#5B53F0;">벤브와</span>
-              <span style="font-size:11px;color:#333;">7건</span>
-              <span style="font-size:10px;color:#888;">/ 97만원</span>
+              <span style="font-size:11px;color:#333;">6건</span>
+              <span style="font-size:10px;color:#888;">/ 83만원</span>
             </div><div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:2px 7px;">
               <span style="font-size:11px;font-weight:700;color:#5B53F0;">에디슨</span>
-              <span style="font-size:11px;color:#333;">6건</span>
-              <span style="font-size:10px;color:#888;">/ 59만원</span>
+              <span style="font-size:11px;color:#333;">9건</span>
+              <span style="font-size:10px;color:#888;">/ 116만원</span>
             </div><div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:2px 7px;">
               <span style="font-size:11px;font-weight:700;color:#5B53F0;">필립스 아벤트</span>
-              <span style="font-size:11px;color:#333;">9건</span>
-              <span style="font-size:10px;color:#888;">/ 138만원</span>
+              <span style="font-size:11px;color:#333;">12건</span>
+              <span style="font-size:10px;color:#888;">/ 179만원</span>
             </div>
           </div>
         </div>
       </div><div class="item-card">
         <div class="card-header">
           <div class="card-item-name">젖병 세척기</div>
-          <div class="card-meta"><span class="brand-count">7개 브랜드</span></div>
+          <div class="card-meta"><span class="brand-count">7개 브랜드</span><span class="issue-count">⚠️ 1</span></div>
         </div>
         <div style="padding:6px 0 2px">
           <div class="col-header" style="display:flex;padding:4px 16px 6px;gap:10px">
@@ -1059,25 +471,25 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
           <div class="brand-name" title="꿈비">꿈비</div>
           <div class="price-col">
             <div class="price-main">399,000원</div>
-            <div class="price-sale">세일 332,100원</div>
+            <div class="price-sale">세일 312,010원</div>
             </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 46,950</span></div>
+          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 55,660</span></div>
           <div class="change-col"><span class="ch-same">—</span></div>
-          <div style="width:72px;flex-shrink:0"><span class="ch-tag">자사몰</span></div>
+          <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
         </div><div class="brand-row" style="">
           <div class="brand-name" title="버들">버들</div>
           <div class="price-col">
             <div class="price-main">348,000원</div>
-            <div class="price-sale">세일 347,000원</div>
+            <div class="price-sale">세일 329,600원</div>
             </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 32,050</span></div>
+          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 38,070</span></div>
           <div class="change-col"><span class="ch-same">—</span></div>
           <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
         </div><div class="brand-row" style="background:rgba(91,83,240,.05);">
           <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
           <div class="price-col">
             <div class="price-main">399,000원</div>
-            <div class="price-sale">세일 379,050원</div>
+            <div class="price-sale">세일 367,670원</div>
             </div>
           <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
           <div class="change-col"><span class="ch-same">—</span></div>
@@ -1085,20 +497,20 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
         </div><div class="brand-row" style="">
           <div class="brand-name" title="소베맘">소베맘</div>
           <div class="price-col">
-            <div class="price-main">399,000원</div>
-            
+            <div class="price-main">309,000원</div>
+            <div class="price-sale">세일 293,550원</div>
             </div>
-          <div class="vs-col"><span class="vs-badge vs-pricier">▲ 19,950</span></div>
+          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 74,120</span></div>
           <div class="change-col"><span class="ch-same">—</span></div>
           <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
         </div><div class="brand-row" style="">
           <div class="brand-name" title="오르테">오르테</div>
           <div class="price-col">
             <div class="price-main">349,000원</div>
-            <div class="price-sale">세일 329,000원</div>
+            <div class="price-sale">세일 312,550원</div>
             </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 50,050</span></div>
-          <div class="change-col"><span class="ch-same">—</span></div>
+          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 55,120</span></div>
+          <div class="change-col"><span class="ch-up">▲1,000</span></div>
           <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
         </div><div class="brand-row" style="">
           <div class="brand-name" title="육아원칙">육아원칙</div>
@@ -1106,37 +518,41 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
             <div class="price-main">379,000원</div>
             
             </div>
-          <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 50</span></div>
+          <div class="vs-col"><span class="vs-badge vs-pricier">▲ 11,330</span></div>
           <div class="change-col"><span class="ch-same">—</span></div>
           <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
         </div><div class="brand-row" style="">
           <div class="brand-name" title="캄토">캄토</div>
           <div class="price-col">
-            <div class="price-main">499,000원</div>
-            
+            <div class="price-main">450,000원</div>
+            <div class="price-sale">세일 389,000원</div>
             </div>
-          <div class="vs-col"><span class="vs-badge vs-pricier">▲ 119,950</span></div>
+          <div class="vs-col"><span class="vs-badge vs-pricier">▲ 21,330</span></div>
           <div class="change-col"><span class="ch-same">—</span></div>
           <div style="width:72px;flex-shrink:0"><span class="ch-tag">네이버</span></div>
         </div>
         </div>
         
+        <div class="issue-section">
+          <div class="issue-section-title">⚠️ 주요 이슈</div>
+          <div class="issue-line"><strong>꿈비</strong> 7/2(목) 11시 네이버 LIVE</div>
+        </div>
         
         <div style="border-top:1px solid var(--border);padding:8px 12px;background:rgba(91,83,240,.03);">
           <div style="font-size:10px;font-weight:700;color:#5B53F0;margin-bottom:5px;">📦 네이버 예상판매 (7일)</div>
           <div style="display:flex;flex-wrap:wrap;gap:5px;">
             <div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:2px 7px;">
-              <span style="font-size:11px;font-weight:700;color:#5B53F0;">꿈비</span>
-              <span style="font-size:11px;color:#333;">12건</span>
-              <span style="font-size:10px;color:#888;">/ 479만원</span>
-            </div><div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:2px 7px;">
               <span style="font-size:11px;font-weight:700;color:#5B53F0;">베이비브레짜</span>
-              <span style="font-size:11px;color:#333;">187건</span>
-              <span style="font-size:10px;color:#888;">/ 7461만원</span>
+              <span style="font-size:11px;color:#333;">156건</span>
+              <span style="font-size:10px;color:#888;">/ 6224만원</span>
+            </div><div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:2px 7px;">
+              <span style="font-size:11px;font-weight:700;color:#5B53F0;">오르테</span>
+              <span style="font-size:11px;color:#333;">5건</span>
+              <span style="font-size:10px;color:#888;">/ 175만원</span>
             </div><div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:2px 7px;">
               <span style="font-size:11px;font-weight:700;color:#5B53F0;">육아원칙</span>
-              <span style="font-size:11px;color:#333;">7건</span>
-              <span style="font-size:10px;color:#888;">/ 265만원</span>
+              <span style="font-size:11px;color:#333;">10건</span>
+              <span style="font-size:10px;color:#888;">/ 379만원</span>
             </div>
           </div>
         </div>
@@ -1179,10 +595,10 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
       <div class="brand-row">
         <div class="brand-name" title="버들">버들</div>
         <div class="price-col">
-          <div class="price-main">538,000원</div>
-          <div class="price-sale">세일 537,000원</div>
+          <div class="price-main">481,000원</div>
+          <div class="price-sale">세일 455,950원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-pricier">▲ 243,450</span></div>
+        <div class="vs-col"><span class="vs-badge vs-pricier">▲ 162,400</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -1212,11 +628,11 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
       <div class="brand-row">
         <div class="brand-name" title="에디슨">에디슨</div>
         <div class="price-col">
-          <div class="price-main">230,000원</div>
-          <div class="price-sale">세일 225,000원</div>
+          <div class="price-main">259,000원</div>
+          <div class="price-sale">세일 254,000원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 68,550</span></div>
-        <div class="change-col"><span class="ch-down">▼29,000</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 39,550</span></div>
+        <div class="change-col"><span class="ch-up">▲29,000</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
@@ -1224,8 +640,7 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
         
       <div class="issue-section">
         <div class="issue-section-title">⚠️ 주요 이슈</div>
-        <div class="issue-line"><strong>에디슨</strong> 에디슨 전주 대비 판매가 인하
-6/24(수) 11시 네이버 LIVE</div>
+        <div class="issue-line"><strong>버들</strong> 버들 전주 대비 판매가 대폭 인상</div>
       </div>
         
       <div style="border-top:1px solid var(--border);padding:8px 16px;background:rgba(91,83,240,.03);">
@@ -1233,8 +648,8 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
         <div style="display:flex;flex-wrap:wrap;gap:6px;">
           <div style="display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:3px 8px;">
             <span style="font-size:11px;font-weight:700;color:#5B53F0;">베이비브레짜</span>
-            <span style="font-size:11px;color:#333;">115건</span>
-            <span style="font-size:10px;color:#888;">/ 3672만원</span>
+            <span style="font-size:11px;color:#333;">96건</span>
+            <span style="font-size:10px;color:#888;">/ 3060만원</span>
           </div>
         </div>
       </div>
@@ -1244,7 +659,7 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
           <div class="card-item-name">젖병 세척기</div>
           <div class="card-meta">
             <span class="brand-count">7개 브랜드</span>
-            <span class="issue-count">⚠️ 5</span>
+            <span class="issue-count">⚠️ 1</span>
           </div>
         </div>
         <div style="padding:6px 0 2px;">
@@ -1260,20 +675,20 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
         <div class="brand-name" title="꿈비">꿈비</div>
         <div class="price-col">
           <div class="price-main">399,000원</div>
-          <div class="price-sale">세일 332,100원</div>
+          <div class="price-sale">세일 312,010원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 46,950</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 55,660</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
-        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="자사몰">자사몰</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
       <div class="brand-row">
         <div class="brand-name" title="버들">버들</div>
         <div class="price-col">
           <div class="price-main">348,000원</div>
-          <div class="price-sale">세일 347,000원</div>
+          <div class="price-sale">세일 329,600원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 32,050</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 38,070</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -1282,7 +697,7 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
         <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
         <div class="price-col">
           <div class="price-main">399,000원</div>
-          <div class="price-sale">세일 379,050원</div>
+          <div class="price-sale">세일 367,670원</div>
         </div>
         <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
@@ -1292,10 +707,10 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
       <div class="brand-row">
         <div class="brand-name" title="소베맘">소베맘</div>
         <div class="price-col">
-          <div class="price-main">399,000원</div>
-          
+          <div class="price-main">309,000원</div>
+          <div class="price-sale">세일 293,550원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-pricier">▲ 19,950</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 74,120</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -1304,10 +719,10 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
         <div class="brand-name" title="오르테">오르테</div>
         <div class="price-col">
           <div class="price-main">349,000원</div>
-          <div class="price-sale">세일 329,000원</div>
+          <div class="price-sale">세일 312,550원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 50,050</span></div>
-        <div class="change-col"><span class="ch-same">—</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 55,120</span></div>
+        <div class="change-col"><span class="ch-up">▲1,000</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
@@ -1317,7 +732,7 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
           <div class="price-main">379,000원</div>
           
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 50</span></div>
+        <div class="vs-col"><span class="vs-badge vs-pricier">▲ 11,330</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -1325,10 +740,10 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
       <div class="brand-row">
         <div class="brand-name" title="캄토">캄토</div>
         <div class="price-col">
-          <div class="price-main">499,000원</div>
-          
+          <div class="price-main">450,000원</div>
+          <div class="price-sale">세일 389,000원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-pricier">▲ 119,950</span></div>
+        <div class="vs-col"><span class="vs-badge vs-pricier">▲ 21,330</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -1337,24 +752,24 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
         
       <div class="issue-section">
         <div class="issue-section-title">⚠️ 주요 이슈</div>
-        <div class="issue-line"><strong>꿈비</strong> 6/10 15시 네이버 LIVE 진행</div><div class="issue-line"><strong>오르테</strong> 네이버 6월 슈퍼적립</div><div class="issue-line"><strong>육아원칙</strong> 6/8 10시 네이버 LIVE 진행</div><div class="issue-line"><strong>육아원칙</strong> 육아원칙 전주 대비 판매가 인상</div><div class="issue-line"><strong>캄토</strong> 품절</div>
+        <div class="issue-line"><strong>꿈비</strong> 7/2(목) 11시 네이버 LIVE</div>
       </div>
         
       <div style="border-top:1px solid var(--border);padding:8px 16px;background:rgba(91,83,240,.03);">
         <div style="font-size:10px;font-weight:700;color:#5B53F0;margin-bottom:6px;">📦 네이버 예상판매 (7일)</div>
         <div style="display:flex;flex-wrap:wrap;gap:6px;">
           <div style="display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:3px 8px;">
-            <span style="font-size:11px;font-weight:700;color:#5B53F0;">꿈비</span>
-            <span style="font-size:11px;color:#333;">12건</span>
-            <span style="font-size:10px;color:#888;">/ 479만원</span>
-          </div><div style="display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:3px 8px;">
             <span style="font-size:11px;font-weight:700;color:#5B53F0;">베이비브레짜</span>
-            <span style="font-size:11px;color:#333;">187건</span>
-            <span style="font-size:10px;color:#888;">/ 7461만원</span>
+            <span style="font-size:11px;color:#333;">156건</span>
+            <span style="font-size:10px;color:#888;">/ 6224만원</span>
+          </div><div style="display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:3px 8px;">
+            <span style="font-size:11px;font-weight:700;color:#5B53F0;">오르테</span>
+            <span style="font-size:11px;color:#333;">5건</span>
+            <span style="font-size:10px;color:#888;">/ 175만원</span>
           </div><div style="display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:3px 8px;">
             <span style="font-size:11px;font-weight:700;color:#5B53F0;">육아원칙</span>
-            <span style="font-size:11px;color:#333;">7건</span>
-            <span style="font-size:10px;color:#888;">/ 265만원</span>
+            <span style="font-size:11px;color:#333;">10건</span>
+            <span style="font-size:10px;color:#888;">/ 379만원</span>
           </div>
         </div>
       </div>
@@ -1364,7 +779,7 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
           <div class="card-item-name">젖병 소독기 UV</div>
           <div class="card-meta">
             <span class="brand-count">6개 브랜드</span>
-            <span class="issue-count">⚠️ 7</span>
+            <span class="issue-count">⚠️ 5</span>
           </div>
         </div>
         <div style="padding:6px 0 2px;">
@@ -1379,11 +794,11 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
       <div class="brand-row">
         <div class="brand-name" title="나리몽">나리몽</div>
         <div class="price-col">
-          <div class="price-main">149,000원</div>
-          <div class="price-sale">세일 148,000원</div>
+          <div class="price-main">139,000원</div>
+          <div class="price-sale">세일 138,000원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 231,050</span></div>
-        <div class="change-col"><span class="ch-same">—</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 229,670</span></div>
+        <div class="change-col"><span class="ch-down">▼10,000</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
@@ -1391,7 +806,7 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
         <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
         <div class="price-col">
           <div class="price-main">399,000원</div>
-          <div class="price-sale">세일 379,050원</div>
+          <div class="price-sale">세일 367,670원</div>
         </div>
         <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
@@ -1401,22 +816,22 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
       <div class="brand-row">
         <div class="brand-name" title="스펙트라">스펙트라</div>
         <div class="price-col">
-          <div class="price-main">233,000원</div>
-          <div class="price-sale">세일 221,350원</div>
+          <div class="price-main">209,700원</div>
+          
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 157,700</span></div>
-        <div class="change-col"><span class="ch-up">▲23,300</span></div>
-        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="CJ온스타일">CJ온스타일</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 157,970</span></div>
+        <div class="change-col"><span class="ch-down">▼23,300</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
       <div class="brand-row">
         <div class="brand-name" title="유팡">유팡</div>
         <div class="price-col">
-          <div class="price-main">385,000원</div>
-          <div class="price-sale">세일 345,750원</div>
+          <div class="price-main">379,000원</div>
+          <div class="price-sale">세일 342,640원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 33,300</span></div>
-        <div class="change-col"><span class="ch-up">▲16,000</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 25,030</span></div>
+        <div class="change-col"><span class="ch-down">▼6,000</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="쿠팡">쿠팡</span></div>
       </div>
     
@@ -1426,8 +841,8 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
           <div class="price-main">378,000원</div>
           <div class="price-sale">세일 344,960원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 34,090</span></div>
-        <div class="change-col"><span class="ch-same">—</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 22,710</span></div>
+        <div class="change-col"><span class="ch-up">▲15,000</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="29CM">29CM</span></div>
       </div>
     
@@ -1437,7 +852,7 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
           <div class="price-main">239,000원</div>
           <div class="price-sale">세일 226,100원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 152,950</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 141,570</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -1446,7 +861,7 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
         
       <div class="issue-section">
         <div class="issue-section-title">⚠️ 주요 이슈</div>
-        <div class="issue-line"><strong>스펙트라</strong> 스펙트라 전주 대비 판매가 인하</div><div class="issue-line"><strong>유팡</strong> 6/11 11시 네이버 맘편한육아 LIVE</div><div class="issue-line"><strong>폴레드</strong> 6/23(화) 11시 네이버 LIVE</div><div class="issue-line"><strong>폴레드</strong> 6/12 11시 네이버 LIVE</div><div class="issue-line"><strong>폴레드</strong> 6/8 19:00 네이버 LIVE</div><div class="issue-line"><strong>해님</strong> 6/23(화) 11시 네이버 LIVE</div><div class="issue-line"><strong>해님</strong> 6/9 11시 네이버 LIVE 진행</div>
+        <div class="issue-line"><strong>나리몽</strong> 나리몽 전주 대비 판매가 인하</div><div class="issue-line"><strong>스펙트라</strong> 스펙트라 전주 대비 판매가 인하</div><div class="issue-line"><strong>유팡</strong> 유팡 전주 대비 판매가 인하</div><div class="issue-line"><strong>폴레드</strong> 폴레드 전주 대비 판매가 인상</div><div class="issue-line"><strong>해님</strong> 7/7(화) 11시 네이버 LIVE 진행</div>
       </div>
         
       <div style="border-top:1px solid var(--border);padding:8px 16px;background:rgba(91,83,240,.03);">
@@ -1454,16 +869,12 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
         <div style="display:flex;flex-wrap:wrap;gap:6px;">
           <div style="display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:3px 8px;">
             <span style="font-size:11px;font-weight:700;color:#5B53F0;">나리몽</span>
-            <span style="font-size:11px;color:#333;">5건</span>
-            <span style="font-size:10px;color:#888;">/ 75만원</span>
-          </div><div style="display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:3px 8px;">
-            <span style="font-size:11px;font-weight:700;color:#5B53F0;">유팡</span>
-            <span style="font-size:11px;color:#333;">9건</span>
-            <span style="font-size:10px;color:#888;">/ 347만원</span>
+            <span style="font-size:11px;color:#333;">10건</span>
+            <span style="font-size:10px;color:#888;">/ 139만원</span>
           </div><div style="display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:3px 8px;">
             <span style="font-size:11px;font-weight:700;color:#5B53F0;">폴레드</span>
-            <span style="font-size:11px;color:#333;">85건</span>
-            <span style="font-size:10px;color:#888;">/ 3213만원</span>
+            <span style="font-size:11px;color:#333;">76건</span>
+            <span style="font-size:10px;color:#888;">/ 2873만원</span>
           </div><div style="display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:3px 8px;">
             <span style="font-size:11px;font-weight:700;color:#5B53F0;">해님</span>
             <span style="font-size:11px;color:#333;">10건</span>
@@ -1477,7 +888,7 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
           <div class="card-item-name">젖병 소독기 스팀</div>
           <div class="card-meta">
             <span class="brand-count">4개 브랜드</span>
-            <span class="issue-count">⚠️ 4</span>
+            <span class="issue-count">⚠️ 2</span>
           </div>
         </div>
         <div style="padding:6px 0 2px;">
@@ -1493,11 +904,11 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
         <div class="brand-name" title="베이비브레짜">베이비브레짜</div>
         <div class="price-col">
           <div class="price-main">149,000원</div>
-          <div class="price-sale">세일 137,500원</div>
+          <div class="price-sale">세일 139,000원</div>
         </div>
         <div class="vs-col"><span class="vs-badge vs-same">—</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
-        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="쿠팡">쿠팡</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
     
       <div class="brand-row">
@@ -1506,7 +917,7 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
           <div class="price-main">139,000원</div>
           
         </div>
-        <div class="vs-col"><span class="vs-badge vs-pricier">▲ 1,500</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 10,000</span></div>
         <div class="change-col"><span class="ch-same">—</span></div>
         <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
       </div>
@@ -1514,31 +925,30 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
       <div class="brand-row">
         <div class="brand-name" title="에디슨">에디슨</div>
         <div class="price-col">
-          <div class="price-main">99,000원</div>
+          <div class="price-main">129,000원</div>
           <div class="price-sale">세일 94,050원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 43,450</span></div>
-        <div class="change-col"><span class="ch-down">▼30,000</span></div>
-        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="네이버">네이버</span></div>
+        <div class="vs-col"><span class="vs-badge vs-cheaper">▼ 44,950</span></div>
+        <div class="change-col"><span class="ch-up">▲30,000</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="쿠팡">쿠팡</span></div>
       </div>
     
       <div class="brand-row">
         <div class="brand-name" title="필립스 아벤트">필립스 아벤트</div>
         <div class="price-col">
-          <div class="price-main">153,000원</div>
-          <div class="price-sale">세일 141,550원</div>
+          <div class="price-main">149,000원</div>
+          <div class="price-sale">세일 141,000원</div>
         </div>
-        <div class="vs-col"><span class="vs-badge vs-pricier">▲ 4,050</span></div>
-        <div class="change-col"><span class="ch-same">—</span></div>
-        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="쿠팡">쿠팡</span></div>
+        <div class="vs-col"><span class="vs-badge vs-pricier">▲ 2,000</span></div>
+        <div class="change-col"><span class="ch-down">▼4,000</span></div>
+        <div style="width:72px;flex-shrink:0;"><span class="ch-tag" title="SSG닷컴">SSG닷컴</span></div>
       </div>
     
         </div>
         
       <div class="issue-section">
         <div class="issue-section-title">⚠️ 주요 이슈</div>
-        <div class="issue-line"><strong>베이비브레짜</strong> 네이버 6월 슈퍼적립</div><div class="issue-line"><strong>에디슨</strong> 에디슨 전주 대비 판매가 인하
-6/24(수) 11시 네이버 LIVE</div><div class="issue-line"><strong>에디슨</strong> 에디슨 전주 대비 판매가 인상</div><div class="issue-line"><strong>필립스 아벤트</strong> 네이버 6월 슈퍼적립</div>
+        <div class="issue-line"><strong>에디슨</strong> 에디슨 전주 대비 판매가 인상</div><div class="issue-line"><strong>필립스 아벤트</strong> 필립스 아벤트 전주 대비 판매가 인하</div>
       </div>
         
       <div style="border-top:1px solid var(--border);padding:8px 16px;background:rgba(91,83,240,.03);">
@@ -1550,16 +960,16 @@ body{background:var(--bg);color:var(--text);min-width:1400px;font-family:'Noto S
             <span style="font-size:10px;color:#888;">/ 104만원</span>
           </div><div style="display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:3px 8px;">
             <span style="font-size:11px;font-weight:700;color:#5B53F0;">벤브와</span>
-            <span style="font-size:11px;color:#333;">7건</span>
-            <span style="font-size:10px;color:#888;">/ 97만원</span>
+            <span style="font-size:11px;color:#333;">6건</span>
+            <span style="font-size:10px;color:#888;">/ 83만원</span>
           </div><div style="display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:3px 8px;">
             <span style="font-size:11px;font-weight:700;color:#5B53F0;">에디슨</span>
-            <span style="font-size:11px;color:#333;">6건</span>
-            <span style="font-size:10px;color:#888;">/ 59만원</span>
+            <span style="font-size:11px;color:#333;">9건</span>
+            <span style="font-size:10px;color:#888;">/ 116만원</span>
           </div><div style="display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0dff8;border-radius:6px;padding:3px 8px;">
             <span style="font-size:11px;font-weight:700;color:#5B53F0;">필립스 아벤트</span>
-            <span style="font-size:11px;color:#333;">9건</span>
-            <span style="font-size:10px;color:#888;">/ 138만원</span>
+            <span style="font-size:11px;color:#333;">12건</span>
+            <span style="font-size:10px;color:#888;">/ 179만원</span>
           </div>
         </div>
       </div>
@@ -1606,7 +1016,24 @@ let T_COL=null, T_DIR='desc';
 // ── 로드 ──────────────────────────────────────────────────
 function pNum(v){if(v===null||v===undefined||v===''||v==='-')return null;if(typeof v==='number')return v;const s=String(v).replace(/[^0-9.-]/g,'').trim();if(!s)return null;const n=parseFloat(s);return isNaN(n)?null:n;}
 function getLatest(){const d=RAW.map(r=>r.날짜||'').filter(Boolean).sort();return d.length?d[d.length-1]:'—';}
-const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbwMLQl0linxJgmkJb-TOVgY3BGRjwRabdCk_v7Ov5t1vIGfE80M5qlJgQ05tAKi43dh/exec';
+function parseGvizDate(raw){
+  if(raw===null||raw===undefined) return '';
+  const s = String(raw).trim();
+  if(!s||s==='-') return '';
+  const m = s.match(/^Date\((\d+),(\d+),(\d+)/);
+  if(m){
+    const y=m[1], mo=String(Number(m[2])+1).padStart(2,'0'), d=String(Number(m[3])).padStart(2,'0');
+    return y+'-'+mo+'-'+d;
+  }
+  if(/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
+  const year=new Date().getFullYear();
+  const mmdd=s.match(/^(\d{1,2})\/(\d{1,2})$/);
+  if(mmdd) return year+'-'+mmdd[1].padStart(2,'0')+'-'+mmdd[2].padStart(2,'0');
+  return s;
+}
+const SHEET_ID='1drYrxjrf8j7QxcKmfzmxpjER5jPb7xXMQxPv8zcq2ow';
+const SHEET_GID='242325392';
+const GVIZ_URL='https://docs.google.com/spreadsheets/d/'+SHEET_ID+'/gviz/tq?gid='+SHEET_GID+'&range=B5:M&tqx=out:json;responseHandler:__brzCb';
 
 function loadData(){
   setStatus([{t:'🔄 데이터 불러오는 중...',c:'chip-info'}]);
@@ -1622,9 +1049,32 @@ function loadData(){
     const s=document.getElementById('brz-jsonp');if(s)s.remove();
     if(rb){rb.disabled=false;rb.textContent='↻ 새로고침';}
     try{
-      const rows=json.rows||json.data||[];
+      const gRows=(json&&json.table&&json.table.rows)?json.table.rows:[];
+      const rows=[];
+      gRows.forEach(function(r){
+        const c=r.c||[];
+        const val=function(i){ return (c[i]&&c[i].v!==undefined&&c[i].v!==null)?c[i].v:''; };
+        const cat=String(val(0)).trim();
+        const brand=String(val(2)).trim();
+        if(!cat&&!brand) return;
+        if(!brand) return;
+        rows.push({
+          품목:cat,
+          날짜:parseGvizDate(val(1)),
+          브랜드:brand,
+          판매가:val(3),
+          '브레짜 가격대비':val(4),
+          세일가:val(5),
+          '브레짜 가격대비_세일':val(6),
+          '전주대비 증감':val(7),
+          '최저가 채널':String(val(8)).trim(),
+          '네이버 예상판매수량(7일)':val(9),
+          '네이버 예상판매매출(7일)':val(10),
+          이슈사항:String(val(11)).trim(),
+        });
+      });
       if(!rows.length)throw new Error('데이터 없음');
-      RAW=json.rows.map(r=>({
+      RAW=rows.map(r=>({
         ...r,
         판매가:pNum(r.판매가),
         세일가:pNum(r.세일가),
@@ -1645,7 +1095,7 @@ function loadData(){
   };
   const sc=document.createElement('script');
   sc.id='brz-jsonp';
-  sc.src=APPS_SCRIPT_URL+'?callback=__brzCb&t='+Date.now();
+  sc.src=GVIZ_URL+'&t='+Date.now();
   sc.onerror=()=>{clearTimeout(timer);if(rb){rb.disabled=false;rb.textContent='↻ 새로고침';}setStatus([{t:'❌ 연결 실패',c:'chip-error'}]);};
   document.body.appendChild(sc);
 }
